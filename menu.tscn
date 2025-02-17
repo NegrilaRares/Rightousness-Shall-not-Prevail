@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://iv2qx76lb6u7"]
+[gd_scene load_steps=16 format=4 uid="uid://iv2qx76lb6u7"]
 
 [ext_resource type="Texture2D" uid="uid://cfcrgjkmbjno4" path="res://TileSets/level_0_basicStage_TileMap.png" id="1_gl7wn"]
 [ext_resource type="Theme" uid="uid://cwqpt6es4m2hp" path="res://Themes/button_play.tres" id="2_nidl2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/player.gd" id="4_wrtys"]
 [ext_resource type="Texture2D" uid="uid://ckh212ny7o63n" path="res://Character/char_down.png" id="5_7im73"]
 [ext_resource type="Texture2D" uid="uid://s870xxydlcu2" path="res://Character/char_left.png" id="6_ux4ma"]
+[ext_resource type="Script" path="res://button_exit.gd" id="8_km7jl"]
 [ext_resource type="Texture2D" uid="uid://16yuoonmw0na" path="res://Character/char_up.png" id="8_xskcm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tdm7t"]
@@ -1741,6 +1742,7 @@ offset_top = 680.0
 offset_right = 493.0
 offset_bottom = 767.0
 theme = ExtResource("3_06yfd")
+script = ExtResource("8_km7jl")
 
 [node name="button_play" type="Button" parent="walls"]
 offset_left = 339.0
@@ -1748,3 +1750,9 @@ offset_top = 531.0
 offset_right = 517.0
 offset_bottom = 641.0
 theme = ExtResource("2_nidl2")
+
+[connection signal="focus_entered" from="walls/button_exit" to="walls/button_exit" method="_on_focus_entered"]
+[connection signal="mouse_entered" from="walls/button_exit" to="walls/button_exit" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="walls/button_exit" to="walls/button_exit" method="_on_mouse_exited"]
+[connection signal="pressed" from="walls/button_exit" to="walls/button_exit" method="_on_pressed"]
+[connection signal="pressed" from="walls/button_play" to="Player" method="_on_button_play_pressed"]
