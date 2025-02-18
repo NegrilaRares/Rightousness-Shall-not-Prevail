@@ -1,14 +1,19 @@
 extends CharacterBody2D
 
 var speed : int
-var game_start = false
+var local_game_start : bool = false
+
 
 func _ready():
 	speed = 200
+	Menu.game_start.connect(on_button_play_pressed_received)
+	
+func on_button_play_pressed_received():
+	local_game_start = true	
 
 func get_input():
 
-	if game_start :
+	if local_game_start :
 	
 		var enemy = get_node("../Player2/AnimatedSprite2D_2")
 		var player = $AnimatedSprite2D
@@ -47,11 +52,3 @@ func _physics_process(_delta):
 	#player movement
 	get_input()
 	move_and_slide()
-
-func _on_button_play_pressed() -> void:
-	
-	game_start = true
-	
-	$/root/Menu/walls/button_exit.hide()
-	$/root/Menu/walls/button_play.hide()
-	
