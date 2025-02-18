@@ -19,10 +19,6 @@ config/icon="res://icon.svg"
 
 aseprite_executable_path="C:/Program Files (x86)/Steam/steamapps/common/Aseprite/Aseprite.exe"
 
-[autoload]
-
-Menu="*res://menu.gd"
-
 [display]
 
 window/stretch/mode="viewport"
