@@ -1,13 +1,10 @@
-extends Node2D
-
-
+extends CanvasLayer
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	stage.get_node("Player2").position
-	
+
 	
 	pass # Replace with function body.
 
