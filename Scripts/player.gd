@@ -16,7 +16,7 @@ func get_input():
 	if local_game_start:
 		#keyboard input
 		var input_dir = Input.get_vector("left", "right", "up", "down")
-		velocity = input_dir.normalized() * speed; 
+		velocity = input_dir.normalized() * speed 
 		
 		if Input.is_key_pressed(KEY_W):
 			$AnimatedSprite2D.animation = "walk_up"
