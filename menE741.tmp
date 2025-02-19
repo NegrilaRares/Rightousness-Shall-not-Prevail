@@ -388,7 +388,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kj0br"]
-size = Vector2(29.25, 22.75)
+size = Vector2(28.5, 33.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ka70"]
 size = Vector2(49, 14)
@@ -1750,7 +1750,7 @@ script = ExtResource("4_wrtys")
 texture_filter = 1
 position = Vector2(410, 582)
 sprite_frames = SubResource("SpriteFrames_w3an0")
-animation = &"walk_down"
+animation = &"walk_up"
 
 [node name="HitBox" type="Area2D" parent="Player/AnimatedSprite2D"]
 position = Vector2(-532, -679)
@@ -1759,7 +1759,7 @@ collision_mask = 0
 script = ExtResource("8_xor5r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AnimatedSprite2D/HitBox"]
-position = Vector2(532, 726)
+position = Vector2(559, 698)
 shape = SubResource("RectangleShape2D_kj0br")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -1890,6 +1890,7 @@ script = ExtResource("13_wdwoa")
 z_index = 5
 y_sort_enabled = true
 position = Vector2(115, -119)
+script = ExtResource("4_wrtys")
 
 [node name="AnimatedSprite2D_2" type="AnimatedSprite2D" parent="Player2"]
 texture_filter = 1
@@ -1903,7 +1904,7 @@ collision_mask = 2
 script = ExtResource("15_8outu")
 
 [node name="CollisionShape2D_Hurt" type="CollisionShape2D" parent="Player2/AnimatedSprite2D_2/HurtBox"]
-position = Vector2(2, 7)
+position = Vector2(6.5, 9.5)
 shape = SubResource("RectangleShape2D_uq5in")
 
 [node name="CollisionShape2D_2" type="CollisionShape2D" parent="Player2"]
