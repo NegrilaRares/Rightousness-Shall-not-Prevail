@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://iv2qx76lb6u7"]
+[gd_scene load_steps=22 format=4 uid="uid://iv2qx76lb6u7"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_6m0vk"]
 [ext_resource type="Texture2D" uid="uid://cfcrgjkmbjno4" path="res://TileSets/level_0_basicStage_TileMap.png" id="1_gl7wn"]
@@ -9,12 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://ckh212ny7o63n" path="res://Character/char_down.png" id="5_7im73"]
 [ext_resource type="Texture2D" uid="uid://s870xxydlcu2" path="res://Character/char_left.png" id="6_ux4ma"]
 [ext_resource type="Script" path="res://Scripts/button_exit.gd" id="8_km7jl"]
-[ext_resource type="Script" path="res://Scripts/HitBox.gd" id="8_xor5r"]
 [ext_resource type="Texture2D" uid="uid://16yuoonmw0na" path="res://Character/char_up.png" id="8_xskcm"]
 [ext_resource type="Texture2D" uid="uid://buing1u2kqwmt" path="res://UI/sword.png" id="12_f8jpm"]
 [ext_resource type="FontFile" uid="uid://b77j6j7usxa2v" path="res://Fonts/Orange Kid.otf" id="12_m2cs5"]
 [ext_resource type="Script" path="res://Scripts/template_text_label.gd" id="13_wdwoa"]
-[ext_resource type="Script" path="res://Scripts/HurtBox.gd" id="15_8outu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tdm7t"]
 texture = ExtResource("1_gl7wn")
@@ -387,11 +385,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kj0br"]
-size = Vector2(29.25, 22.75)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ka70"]
-size = Vector2(49, 14)
+size = Vector2(68, 23.875)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fmeyx"]
 texture = ExtResource("1_gl7wn")
@@ -1727,11 +1722,7 @@ border_color = Color(1, 1, 1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hxp3"]
 bg_color = Color(0.2408, 0.25112, 0.86, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uq5in"]
-size = Vector2(105, 101)
-
 [node name="Menu" type="Node2D"]
-y_sort_enabled = true
 position = Vector2(1, -94)
 script = ExtResource("1_6m0vk")
 
@@ -1742,7 +1733,6 @@ tile_set = SubResource("TileSet_wkxg5")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 z_index = 5
-y_sort_enabled = true
 position = Vector2(122, 97)
 script = ExtResource("4_wrtys")
 
@@ -1750,17 +1740,7 @@ script = ExtResource("4_wrtys")
 texture_filter = 1
 position = Vector2(410, 582)
 sprite_frames = SubResource("SpriteFrames_w3an0")
-animation = &"walk_down"
-
-[node name="HitBox" type="Area2D" parent="Player/AnimatedSprite2D"]
-position = Vector2(-532, -679)
-collision_layer = 2
-collision_mask = 0
-script = ExtResource("8_xor5r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AnimatedSprite2D/HitBox"]
-position = Vector2(532, 726)
-shape = SubResource("RectangleShape2D_kj0br")
+animation = &"walk_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(411, 622)
@@ -1789,7 +1769,7 @@ theme = ExtResource("2_nidl2")
 
 [node name="TextboxContainer" type="MarginContainer" parent="walls"]
 layout_direction = 2
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1821,7 +1801,6 @@ horizontal_alignment = 1
 
 [node name="titleSword" type="Label" parent="walls/TextboxContainer/Panel"]
 visible = false
-layout_mode = 0
 offset_left = 9.0
 offset_top = 60.0
 offset_right = 265.0
@@ -1855,6 +1834,7 @@ size_flags_vertical = 0
 size_flags_stretch_ratio = 0.0
 theme_override_fonts/font = ExtResource("12_m2cs5")
 theme_override_font_sizes/font_size = 42
+text = "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
 autowrap_mode = 1
 
 [node name="textEnd" type="Label" parent="walls/TextboxContainer/MarginContainer/VBoxContainer"]
@@ -1885,30 +1865,6 @@ visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("13_wdwoa")
-
-[node name="Player2" type="CharacterBody2D" parent="."]
-z_index = 5
-y_sort_enabled = true
-position = Vector2(115, -119)
-
-[node name="AnimatedSprite2D_2" type="AnimatedSprite2D" parent="Player2"]
-texture_filter = 1
-position = Vector2(410, 582)
-sprite_frames = SubResource("SpriteFrames_w3an0")
-animation = &"walk_down"
-
-[node name="HurtBox" type="Area2D" parent="Player2/AnimatedSprite2D_2"]
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("15_8outu")
-
-[node name="CollisionShape2D_Hurt" type="CollisionShape2D" parent="Player2/AnimatedSprite2D_2/HurtBox"]
-position = Vector2(2, 7)
-shape = SubResource("RectangleShape2D_uq5in")
-
-[node name="CollisionShape2D_2" type="CollisionShape2D" parent="Player2"]
-position = Vector2(410.5, 623)
-shape = SubResource("RectangleShape2D_3ka70")
 
 [connection signal="focus_entered" from="walls/button_exit" to="walls/button_exit" method="_on_focus_entered"]
 [connection signal="mouse_entered" from="walls/button_exit" to="walls/button_exit" method="_on_mouse_entered"]
