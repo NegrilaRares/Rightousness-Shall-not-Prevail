@@ -1,6 +1,5 @@
-[gd_scene load_steps=21 format=4 uid="uid://iv2qx76lb6u7"]
+[gd_scene load_steps=20 format=4 uid="uid://iv2qx76lb6u7"]
 
-[ext_resource type="Script" path="res://menu.gd" id="1_3xbfh"]
 [ext_resource type="Texture2D" uid="uid://cfcrgjkmbjno4" path="res://TileSets/level_0_basicStage_TileMap.png" id="1_gl7wn"]
 [ext_resource type="Theme" uid="uid://cwqpt6es4m2hp" path="res://Themes/button_play.tres" id="2_nidl2"]
 [ext_resource type="Theme" uid="uid://dlfb54pfdax3d" path="res://Themes/button_exit.tres" id="3_06yfd"]
@@ -1719,7 +1718,6 @@ size = Vector2(109.09, 106.786)
 [node name="Menu" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(1, -94)
-script = ExtResource("1_3xbfh")
 
 [node name="floor" type="TileMapLayer" parent="."]
 position = Vector2(97, -386)
@@ -1801,4 +1799,4 @@ shape = SubResource("RectangleShape2D_3ka70")
 [connection signal="mouse_entered" from="walls/button_exit" to="walls/button_exit" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="walls/button_exit" to="walls/button_exit" method="_on_mouse_exited"]
 [connection signal="pressed" from="walls/button_exit" to="walls/button_exit" method="_on_pressed"]
-[connection signal="pressed" from="walls/button_play" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="walls/button_play" to="Player" method="_on_button_play_pressed"]
