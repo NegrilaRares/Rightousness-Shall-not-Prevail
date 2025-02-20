@@ -1,11 +1,13 @@
 extends Area2D
 
 var in_range = false
-@onready var enemy_model = $"../.."
+@onready var player = $"../.."
+var hitbox_inside
+@onready var arrowHitbox = $"../../../arrow/arrow_sprite/HitBox_Arrow"
 
 func _init() -> void:
 	collision_layer = 0 # where the box is 
-	collision_mask = 2 # where it looks for collisions
+	collision_mask = 4 # where it looks for collisions
 
 
 func _ready() -> void:
@@ -16,16 +18,22 @@ func _ready() -> void:
 	connect("area_entered", self._on_area_entered)
 	connect("area_exited", self._on_area_exited)
 
-func _on_area_entered(hitbox: HitBox) -> void:
+func _on_area_entered(hitbox: Area2D) -> void:
 
+	player.call_deferred("queue_free") 
+
+	hitbox_inside = hitbox
 	in_range = true
 		
-func _on_area_exited(hitbox: HitBox) -> void:
+func _on_area_exited(hitbox: Area2D) -> void:
+	
+	if hitbox_inside == hitbox:
+		hitbox_inside = null
 		
 	in_range = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && in_range:
-		enemy_model.call_deferred("queue_free") # removes enemy node and all children
+	if hitbox_inside == arrowHitbox:
+		player.call_deferred("queue_free")  # removes enemy node and all children
