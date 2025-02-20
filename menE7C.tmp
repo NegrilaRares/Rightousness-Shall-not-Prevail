@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://iv2qx76lb6u7"]
+[gd_scene load_steps=51 format=4 uid="uid://iv2qx76lb6u7"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_6m0vk"]
 [ext_resource type="Texture2D" uid="uid://cfcrgjkmbjno4" path="res://TileSets/level_0_basicStage_TileMap.png" id="1_gl7wn"]
@@ -24,7 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://meubgtl3g2u8" path="res://Objects/torch_1.png" id="18_tenx8"]
 [ext_resource type="Texture2D" uid="uid://dcnet2wwjge3u" path="res://Objects/torch_2.png" id="19_r1u8y"]
 [ext_resource type="Texture2D" uid="uid://ivkw6vehiekr" path="res://Objects/torch_3.png" id="20_5bb3g"]
-[ext_resource type="Script" path="res://collision_left_door.gd" id="20_7ws17"]
 [ext_resource type="Texture2D" uid="uid://bit51jlgavu1r" path="res://Objects/torch_4.png" id="21_r1unc"]
 [ext_resource type="Script" path="res://arrow.gd" id="24_acfnb"]
 [ext_resource type="Texture2D" uid="uid://dyf0dacp61r24" path="res://Objects/arrow_down.png" id="25_75ay4"]
@@ -2204,15 +2203,6 @@ animation = &"on"
 libraries = {
 "": SubResource("AnimationLibrary_7xgm1")
 }
-
-[node name="collision_left_door" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 256
-script = ExtResource("20_7ws17")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="collision_left_door"]
-position = Vector2(243, 303)
-shape = SubResource("RectangleShape2D_l7ld8")
 
 [node name="collision_single_door" type="Area2D" parent="."]
 collision_layer = 0
