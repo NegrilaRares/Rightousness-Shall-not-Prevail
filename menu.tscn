@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://iv2qx76lb6u7"]
+[gd_scene load_steps=40 format=4 uid="uid://iv2qx76lb6u7"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_6m0vk"]
 [ext_resource type="Texture2D" uid="uid://cfcrgjkmbjno4" path="res://TileSets/level_0_basicStage_TileMap.png" id="1_gl7wn"]
@@ -11,346 +11,18 @@
 [ext_resource type="Script" path="res://Scripts/button_exit.gd" id="8_km7jl"]
 [ext_resource type="Script" path="res://Scripts/HitBox.gd" id="8_xor5r"]
 [ext_resource type="Texture2D" uid="uid://16yuoonmw0na" path="res://Character/char_up.png" id="8_xskcm"]
+[ext_resource type="Texture2D" uid="uid://bthod3e1galam" path="res://TileSets/cave_wall.png" id="9_tbyyv"]
 [ext_resource type="Texture2D" uid="uid://buing1u2kqwmt" path="res://UI/sword.png" id="12_f8jpm"]
 [ext_resource type="FontFile" uid="uid://b77j6j7usxa2v" path="res://Fonts/Orange Kid.otf" id="12_m2cs5"]
+[ext_resource type="Script" path="res://Scripts/textbox_container.gd" id="13_752kv"]
 [ext_resource type="Script" path="res://Scripts/template_text_label.gd" id="13_wdwoa"]
 [ext_resource type="Script" path="res://Scripts/HurtBox.gd" id="15_8outu"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tdm7t"]
-texture = ExtResource("1_gl7wn")
-texture_region_size = Vector2i(96, 96)
-use_texture_padding = false
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-11:0/0 = 0
-12:0/0 = 0
-13:0/0 = 0
-14:0/0 = 0
-15:0/0 = 0
-16:0/0 = 0
-17:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-11:1/0 = 0
-12:1/0 = 0
-13:1/0 = 0
-14:1/0 = 0
-15:1/0 = 0
-16:1/0 = 0
-17:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48, -48, 48, -48, 48, 48, -48, 48)
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-10:2/0 = 0
-11:2/0 = 0
-12:2/0 = 0
-13:2/0 = 0
-14:2/0 = 0
-15:2/0 = 0
-16:2/0 = 0
-17:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-9:3/0 = 0
-10:3/0 = 0
-11:3/0 = 0
-12:3/0 = 0
-13:3/0 = 0
-14:3/0 = 0
-15:3/0 = 0
-16:3/0 = 0
-17:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-8:4/0 = 0
-9:4/0 = 0
-10:4/0 = 0
-11:4/0 = 0
-12:4/0 = 0
-13:4/0 = 0
-14:4/0 = 0
-15:4/0 = 0
-16:4/0 = 0
-17:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-8:5/0 = 0
-9:5/0 = 0
-10:5/0 = 0
-11:5/0 = 0
-12:5/0 = 0
-13:5/0 = 0
-14:5/0 = 0
-15:5/0 = 0
-16:5/0 = 0
-17:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-8:6/0 = 0
-9:6/0 = 0
-10:6/0 = 0
-11:6/0 = 0
-12:6/0 = 0
-13:6/0 = 0
-14:6/0 = 0
-15:6/0 = 0
-16:6/0 = 0
-17:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
-8:7/0 = 0
-9:7/0 = 0
-10:7/0 = 0
-11:7/0 = 0
-12:7/0 = 0
-13:7/0 = 0
-14:7/0 = 0
-15:7/0 = 0
-16:7/0 = 0
-17:7/0 = 0
-0:8/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-4:8/0 = 0
-5:8/0 = 0
-6:8/0 = 0
-7:8/0 = 0
-8:8/0 = 0
-9:8/0 = 0
-10:8/0 = 0
-11:8/0 = 0
-12:8/0 = 0
-13:8/0 = 0
-14:8/0 = 0
-15:8/0 = 0
-16:8/0 = 0
-17:8/0 = 0
-0:9/0 = 0
-1:9/0 = 0
-2:9/0 = 0
-3:9/0 = 0
-4:9/0 = 0
-5:9/0 = 0
-6:9/0 = 0
-7:9/0 = 0
-8:9/0 = 0
-9:9/0 = 0
-10:9/0 = 0
-11:9/0 = 0
-12:9/0 = 0
-13:9/0 = 0
-14:9/0 = 0
-15:9/0 = 0
-16:9/0 = 0
-17:9/0 = 0
-0:10/0 = 0
-1:10/0 = 0
-2:10/0 = 0
-3:10/0 = 0
-4:10/0 = 0
-5:10/0 = 0
-6:10/0 = 0
-7:10/0 = 0
-8:10/0 = 0
-9:10/0 = 0
-10:10/0 = 0
-11:10/0 = 0
-12:10/0 = 0
-13:10/0 = 0
-14:10/0 = 0
-15:10/0 = 0
-16:10/0 = 0
-17:10/0 = 0
-0:11/0 = 0
-1:11/0 = 0
-2:11/0 = 0
-3:11/0 = 0
-4:11/0 = 0
-5:11/0 = 0
-6:11/0 = 0
-7:11/0 = 0
-8:11/0 = 0
-9:11/0 = 0
-10:11/0 = 0
-11:11/0 = 0
-12:11/0 = 0
-13:11/0 = 0
-14:11/0 = 0
-15:11/0 = 0
-16:11/0 = 0
-17:11/0 = 0
-0:12/0 = 0
-1:12/0 = 0
-2:12/0 = 0
-3:12/0 = 0
-4:12/0 = 0
-5:12/0 = 0
-6:12/0 = 0
-7:12/0 = 0
-8:12/0 = 0
-9:12/0 = 0
-10:12/0 = 0
-11:12/0 = 0
-12:12/0 = 0
-13:12/0 = 0
-14:12/0 = 0
-15:12/0 = 0
-16:12/0 = 0
-17:12/0 = 0
-0:13/0 = 0
-1:13/0 = 0
-2:13/0 = 0
-3:13/0 = 0
-4:13/0 = 0
-5:13/0 = 0
-6:13/0 = 0
-7:13/0 = 0
-8:13/0 = 0
-9:13/0 = 0
-10:13/0 = 0
-11:13/0 = 0
-12:13/0 = 0
-13:13/0 = 0
-14:13/0 = 0
-15:13/0 = 0
-16:13/0 = 0
-17:13/0 = 0
-0:14/0 = 0
-1:14/0 = 0
-2:14/0 = 0
-3:14/0 = 0
-4:14/0 = 0
-5:14/0 = 0
-6:14/0 = 0
-7:14/0 = 0
-8:14/0 = 0
-9:14/0 = 0
-10:14/0 = 0
-11:14/0 = 0
-12:14/0 = 0
-13:14/0 = 0
-14:14/0 = 0
-15:14/0 = 0
-16:14/0 = 0
-17:14/0 = 0
-0:15/0 = 0
-1:15/0 = 0
-2:15/0 = 0
-3:15/0 = 0
-4:15/0 = 0
-5:15/0 = 0
-6:15/0 = 0
-7:15/0 = 0
-8:15/0 = 0
-9:15/0 = 0
-10:15/0 = 0
-11:15/0 = 0
-12:15/0 = 0
-13:15/0 = 0
-14:15/0 = 0
-15:15/0 = 0
-16:15/0 = 0
-17:15/0 = 0
-0:16/0 = 0
-1:16/0 = 0
-2:16/0 = 0
-3:16/0 = 0
-4:16/0 = 0
-5:16/0 = 0
-6:16/0 = 0
-7:16/0 = 0
-8:16/0 = 0
-9:16/0 = 0
-10:16/0 = 0
-11:16/0 = 0
-12:16/0 = 0
-13:16/0 = 0
-14:16/0 = 0
-15:16/0 = 0
-16:16/0 = 0
-17:16/0 = 0
-0:17/0 = 0
-1:17/0 = 0
-2:17/0 = 0
-3:17/0 = 0
-4:17/0 = 0
-5:17/0 = 0
-6:17/0 = 0
-7:17/0 = 0
-8:17/0 = 0
-9:17/0 = 0
-10:17/0 = 0
-11:17/0 = 0
-12:17/0 = 0
-13:17/0 = 0
-14:17/0 = 0
-15:17/0 = 0
-16:17/0 = 0
-17:17/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_wkxg5"]
-tile_size = Vector2i(96, 96)
-physics_layer_0/collision_layer = 0
-physics_layer_0/collision_mask = 0
-sources/2 = SubResource("TileSetAtlasSource_tdm7t")
+[ext_resource type="Script" path="res://Scripts/collision_single_door.gd" id="18_hpnd3"]
+[ext_resource type="Script" path="res://tower_floor.gd" id="18_jactb"]
+[ext_resource type="Texture2D" uid="uid://meubgtl3g2u8" path="res://Objects/torch_1.png" id="18_tenx8"]
+[ext_resource type="Texture2D" uid="uid://dcnet2wwjge3u" path="res://Objects/torch_2.png" id="19_r1u8y"]
+[ext_resource type="Texture2D" uid="uid://ivkw6vehiekr" path="res://Objects/torch_3.png" id="20_5bb3g"]
+[ext_resource type="Texture2D" uid="uid://bit51jlgavu1r" path="res://Objects/torch_4.png" id="21_r1unc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w3an0"]
 animations = [{
@@ -388,7 +60,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kj0br"]
-size = Vector2(29.25, 22.75)
+size = Vector2(29, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ka70"]
 size = Vector2(49, 14)
@@ -1710,11 +1382,25 @@ texture_region_size = Vector2i(96, 96)
 34:35/0 = 0
 35:35/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dckwa"]
+texture = ExtResource("9_tbyyv")
+texture_region_size = Vector2i(96, 96)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_bjen6"]
 tile_size = Vector2i(96, 96)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 5
 sources/0 = SubResource("TileSetAtlasSource_fmeyx")
+sources/1 = SubResource("TileSetAtlasSource_dckwa")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ua1bv"]
 bg_color = Color(0, 0, 0, 0.8)
@@ -1730,15 +1416,418 @@ bg_color = Color(0.2408, 0.25112, 0.86, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uq5in"]
 size = Vector2(105, 101)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tdm7t"]
+texture = ExtResource("1_gl7wn")
+texture_region_size = Vector2i(96, 96)
+use_texture_padding = false
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48, -48, 48, -48, 48, 48, -48, 48)
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+17:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+16:8/0 = 0
+17:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+17:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+17:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+16:12/0 = 0
+17:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+10:13/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+16:13/0 = 0
+17:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+16:14/0 = 0
+17:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+16:15/0 = 0
+17:15/0 = 0
+0:16/0 = 0
+1:16/0 = 0
+2:16/0 = 0
+3:16/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+8:16/0 = 0
+9:16/0 = 0
+10:16/0 = 0
+11:16/0 = 0
+12:16/0 = 0
+13:16/0 = 0
+14:16/0 = 0
+15:16/0 = 0
+16:16/0 = 0
+17:16/0 = 0
+0:17/0 = 0
+1:17/0 = 0
+2:17/0 = 0
+3:17/0 = 0
+4:17/0 = 0
+5:17/0 = 0
+6:17/0 = 0
+7:17/0 = 0
+8:17/0 = 0
+9:17/0 = 0
+10:17/0 = 0
+11:17/0 = 0
+12:17/0 = 0
+13:17/0 = 0
+14:17/0 = 0
+15:17/0 = 0
+16:17/0 = 0
+17:17/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_wkxg5"]
+tile_size = Vector2i(96, 96)
+physics_layer_0/collision_layer = 0
+physics_layer_0/collision_mask = 0
+sources/2 = SubResource("TileSetAtlasSource_tdm7t")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h44bx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_tenx8")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("19_r1u8y")
+}, {
+"duration": 3.0,
+"texture": ExtResource("20_5bb3g")
+}, {
+"duration": 3.0,
+"texture": ExtResource("21_r1unc")
+}],
+"loop": true,
+"name": &"on",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_d5xan"]
+resource_name = "lit"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.566667, 1.06667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_w0ka4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7xgm1"]
+_data = {
+"RESET": SubResource("Animation_w0ka4"),
+"lit": SubResource("Animation_d5xan")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7ld8"]
+size = Vector2(216, 26)
+
 [node name="Menu" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(1, -94)
 script = ExtResource("1_6m0vk")
 
-[node name="floor" type="TileMapLayer" parent="."]
-position = Vector2(97, -386)
-tile_map_data = PackedByteArray("AAAAAAgAAgABAAIAAAAAAAkAAgAAAAAAAAAAAAoAAgAAAAMAAAAAAAsAAgAFAAIAAAABAAgAAgABAAIAAAABAAkAAgADAAAAAAABAAoAAgAEAAIAAAABAAsAAgABAAMAAAACAAkAAgABAAAAAAACAAoAAgAAAAMAAAACAAsAAgAAAAMAAAADAAoAAgAFAAAAAAADAAsAAgAEAAEAAAAEAAcAAgADAAQAAAAEAAgAAgABAAIAAAAEAAoAAgABAAIAAAAEAAsAAgABAAIAAAAFAAgAAgABAAIAAAAFAAkAAgABAAIAAAAFAAoAAgAEAAAAAAAFAAsAAgADAAEAAAAGAAgAAgABAAIAAAAGAAkAAgADAAAAAAAGAAoAAgAEAAIAAAAGAAsAAgAAAAMAAAAHAAgAAgABAAIAAAAHAAkAAgACAAAAAAAHAAoAAgABAAMAAAAHAAsAAgAEAAIAAAAIAAkAAgADAAAAAAAIAAoAAgAFAAIAAAAIAAsAAgAFAAIAAAAIAAgAAgABAAIAAAACAAgAAgABAAIAAAADAAgAAgABAAIAAAADAAkAAgABAAIAAAAEAAkAAgABAAIAAAD//wgAAgABAAIAAAD//wkAAgABAAAAAAD//woAAgAEAAIAAAD//wsAAgABAAMAAAA=")
-tile_set = SubResource("TileSet_wkxg5")
+[node name="templateTextLabel" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("13_wdwoa")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 z_index = 5
@@ -1750,7 +1839,7 @@ script = ExtResource("4_wrtys")
 texture_filter = 1
 position = Vector2(410, 582)
 sprite_frames = SubResource("SpriteFrames_w3an0")
-animation = &"walk_down"
+animation = &"walk_up"
 
 [node name="HitBox" type="Area2D" parent="Player/AnimatedSprite2D"]
 position = Vector2(-532, -679)
@@ -1759,7 +1848,7 @@ collision_mask = 0
 script = ExtResource("8_xor5r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AnimatedSprite2D/HitBox"]
-position = Vector2(532, 726)
+position = Vector2(564.5, 698.5)
 shape = SubResource("RectangleShape2D_kj0br")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -1769,10 +1858,11 @@ shape = SubResource("RectangleShape2D_3ka70")
 [node name="walls" type="TileMapLayer" parent="."]
 z_index = 3
 position = Vector2(97, -386)
-tile_map_data = PackedByteArray("AAD//wwAAAACAAIAAAAAAAwAAAACAAIAAAABAAwAAAACAAIAAAACAAwAAAACAAIAAAADAAwAAAACAAIAAAAEAAwAAAACAAIAAAAFAAwAAAACAAIAAAAGAAwAAAACAAIAAAAHAAwAAAACAAIAAAAIAAwAAAACAAIAAAAJAAwAAAACAAIAAAAKAAwAAAACAAIAAAAKAAsAAAACAAIAAAAKAAoAAAACAAIAAAAKAAkAAAACAAIAAAAKAAgAAAACAAIAAAAKAAcAAAACAAIAAAAKAAYAAAACAAIAAAAKAAUAAAACAAIAAAAJAAYAAAACAAIAAAAJAAUAAAACAAIAAAAIAAUAAAACAAIAAAAIAAYAAAACAAIAAAAIAAcAAAACAAIAAAAIAAgAAAACAAIAAAAJAAgAAAACAAIAAAAJAAcAAAACAAIAAAAJAAkAAAACAAIAAAAJAAoAAAACAAIAAAAJAAsAAAACAAIAAAAIAAsAAAACAAIAAAAIAAoAAAACAAIAAAAIAAkAAAACAAIAAAAKAAQAAAACAAIAAAAJAAQAAAACAAIAAAAIAAQAAAACAAIAAAAHAAQAAAACAAIAAAAGAAQAAAACAAIAAAAFAAQAAAACAAIAAAAEAAQAAAACAAIAAAADAAQAAAACAAIAAAACAAQAAAACAAIAAAABAAQAAAACAAIAAAAAAAQAAAACAAIAAAD//wQAAAACAAIAAAAAAAUAAAADAAIAAAABAAUAAAADAAIAAAACAAUAAAADAAIAAAADAAUAAAACAAMAAAAEAAUAAAADAAMAAAAFAAUAAAAEAAMAAAAGAAUAAAADAAIAAAAHAAUAAAADAAIAAAAHAAYAAAADAAIAAAAHAAcAAAADAAIAAAAGAAcAAAADAAIAAAAFAAcAAAABAAQAAAAEAAcAAAADAAQAAAADAAcAAAAFAAMAAAACAAcAAAADAAIAAAABAAcAAAADAAIAAAAAAAcAAAADAAIAAAAAAAYAAAADAAIAAAABAAYAAAADAAIAAAACAAYAAAADAAIAAAADAAYAAAAFAAMAAAAEAAYAAAAAAAQAAAAFAAYAAAABAAQAAAAGAAYAAAADAAIAAAD//wcAAAADAAIAAAD//wYAAAADAAIAAAD//wUAAAADAAIAAAA=")
+tile_map_data = PackedByteArray("AAD//wwAAAACAAIAAAAAAAwAAAACAAIAAAABAAwAAAACAAIAAAACAAwAAAACAAIAAAADAAwAAAACAAIAAAAEAAwAAAACAAIAAAAFAAwAAAACAAIAAAAGAAwAAAACAAIAAAAHAAwAAAACAAIAAAAIAAwAAAACAAIAAAAJAAwAAAACAAIAAAAKAAwAAAACAAIAAAAKAAsAAAACAAIAAAAKAAoAAAACAAIAAAAKAAkAAAACAAIAAAAKAAgAAAACAAIAAAAKAAcAAAACAAIAAAAKAAYAAAACAAIAAAAKAAUAAAACAAIAAAAJAAYAAAACAAIAAAAJAAUAAAACAAIAAAAIAAUAAAACAAIAAAAIAAYAAAACAAIAAAAIAAcAAAACAAIAAAAIAAgAAAACAAIAAAAJAAgAAAACAAIAAAAJAAcAAAACAAIAAAAJAAkAAAACAAIAAAAJAAoAAAACAAIAAAAJAAsAAAACAAIAAAAIAAsAAAACAAIAAAAIAAoAAAACAAIAAAAIAAkAAAACAAIAAAAKAAQAAAACAAIAAAAJAAQAAAACAAIAAAAIAAQAAAACAAIAAAAHAAQAAAACAAIAAAAGAAQAAAACAAIAAAAFAAQAAAACAAIAAAAEAAQAAAACAAIAAAACAAQAAAACAAIAAAABAAQAAAACAAIAAAAAAAQAAAACAAIAAAD//wQAAAACAAIAAAD+/wQAAAACAAIAAAD+/wUAAAACAAIAAAD+/wYAAAACAAIAAAD+/wcAAAACAAIAAAD+/wgAAAACAAIAAAD+/wkAAAACAAIAAAD+/woAAAACAAIAAAD+/wsAAAACAAIAAAD+/wwAAAACAAIAAAADAAQAAAACAAIAAAA=")
 tile_set = SubResource("TileSet_bjen6")
 
 [node name="button_exit" type="Button" parent="walls"]
+z_index = 10
 offset_left = 372.0
 offset_top = 680.0
 offset_right = 493.0
@@ -1781,6 +1871,7 @@ theme = ExtResource("3_06yfd")
 script = ExtResource("8_km7jl")
 
 [node name="button_play" type="Button" parent="walls"]
+z_index = 10
 offset_left = 339.0
 offset_top = 531.0
 offset_right = 517.0
@@ -1803,12 +1894,14 @@ grow_vertical = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
 size_flags_stretch_ratio = 0.0
+script = ExtResource("13_752kv")
 
 [node name="Panel" type="Panel" parent="walls/TextboxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ua1bv")
 
 [node name="titleNarator" type="Label" parent="walls/TextboxContainer/Panel"]
+visible = false
 layout_mode = 0
 offset_left = 43.0
 offset_top = 21.0
@@ -1858,6 +1951,7 @@ theme_override_font_sizes/font_size = 42
 autowrap_mode = 1
 
 [node name="textEnd" type="Label" parent="walls/TextboxContainer/MarginContainer/VBoxContainer"]
+visible = false
 y_sort_enabled = true
 custom_minimum_size = Vector2(240, 0)
 layout_direction = 2
@@ -1879,12 +1973,6 @@ offset_top = 497.0
 offset_right = 1040.0
 offset_bottom = 563.0
 texture = ExtResource("12_f8jpm")
-
-[node name="templateTextLabel" type="Label" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
-script = ExtResource("13_wdwoa")
 
 [node name="Player2" type="CharacterBody2D" parent="."]
 z_index = 5
@@ -1909,6 +1997,139 @@ shape = SubResource("RectangleShape2D_uq5in")
 [node name="CollisionShape2D_2" type="CollisionShape2D" parent="Player2"]
 position = Vector2(410.5, 623)
 shape = SubResource("RectangleShape2D_3ka70")
+
+[node name="single_door_closed" type="TileMapLayer" parent="."]
+z_index = 3
+position = Vector2(97, -386)
+tile_map_data = PackedByteArray("AAAAAAUAAAADAAIAAAABAAUAAAADAAIAAAACAAUAAAADAAIAAAD//wUAAAADAAIAAAAFAAUAAAAEAAMAAAAFAAYAAAABAAQAAAAGAAYAAAADAAIAAAAFAAcAAAABAAQAAAAEAAcAAAADAAQAAAAEAAYAAAAAAAQAAAAEAAUAAAADAAMAAAADAAUAAAACAAMAAAADAAYAAAAFAAMAAAACAAYAAAADAAIAAAADAAcAAAAFAAMAAAACAAcAAAADAAIAAAABAAcAAAADAAIAAAAAAAcAAAADAAIAAAD//wcAAAADAAIAAAD//wYAAAADAAIAAAAAAAYAAAADAAIAAAABAAYAAAADAAIAAAAHAAYAAAADAAIAAAAHAAUAAAADAAIAAAAGAAUAAAADAAIAAAAHAAcAAAADAAIAAAAGAAcAAAADAAIAAAA=")
+tile_set = SubResource("TileSet_bjen6")
+
+[node name="single_door_open" type="TileMapLayer" parent="."]
+visible = false
+z_index = 3
+position = Vector2(194, -772)
+tile_map_data = PackedByteArray("AAD+/wkAAAADAAIAAAD+/woAAAADAAIAAAD+/wsAAAADAAIAAAD//wsAAAADAAIAAAD//woAAAADAAIAAAD//wkAAAADAAIAAAAAAAkAAAADAAIAAAAAAAoAAAADAAIAAAAAAAsAAAADAAIAAAABAAsAAAADAAIAAAABAAoAAAADAAIAAAABAAkAAAADAAIAAAAFAAkAAAADAAIAAAAFAAoAAAADAAIAAAAFAAsAAAADAAIAAAAGAAsAAAADAAIAAAAGAAoAAAADAAIAAAAGAAkAAAADAAIAAAACAAkAAAAEAAQAAAADAAkAAAAFAAQAAAAEAAkAAAAAAAUAAAACAAoAAAAEAAUAAAADAAoAAAACAAUAAAADAAsAAAACAAUAAAACAAsAAAABAAUAAAAEAAoAAAADAAUAAAAEAAsAAAADAAUAAAA=")
+tile_set = SubResource("TileSet_bjen6")
+
+[node name="door_cave_closed" type="TileMapLayer" parent="."]
+visible = false
+z_index = 3
+position = Vector2(194, -772)
+tile_map_data = PackedByteArray("AAD//wkAAAACAAMAAAAAAAkAAAADAAMAAAABAAkAAAAEAAMAAAD+/wkAAAADAAIAAAACAAkAAAADAAIAAAAGAAkAAAADAAIAAAAGAAoAAAADAAIAAAAGAAsAAAADAAIAAAD+/woAAAADAAIAAAD+/wsAAAADAAIAAAACAAoAAAADAAIAAAACAAsAAAADAAIAAAAAAAsAAAADAAQAAAAAAAoAAAAAAAQAAAD//woAAAACAAQAAAD//wsAAAACAAQAAAABAAsAAAABAAQAAAABAAoAAAABAAQAAAAFAAkAAAADAAIAAAAEAAkAAAADAAIAAAADAAkAAAADAAIAAAADAAoAAAADAAIAAAAEAAoAAAADAAIAAAAFAAoAAAADAAIAAAAFAAsAAAADAAIAAAAEAAsAAAADAAIAAAADAAsAAAADAAIAAAA=")
+tile_set = SubResource("TileSet_bjen6")
+
+[node name="door_cave_with_door_open" type="TileMapLayer" parent="."]
+visible = false
+z_index = 3
+position = Vector2(194, -772)
+tile_map_data = PackedByteArray("AAD//wkAAAAEAAQAAAAAAAkAAAAFAAQAAAABAAkAAAAAAAUAAAD+/wkAAAADAAIAAAACAAkAAAADAAIAAAAGAAkAAAADAAIAAAAGAAoAAAADAAIAAAAGAAsAAAADAAIAAAD+/woAAAADAAIAAAD+/wsAAAADAAIAAAACAAoAAAADAAIAAAACAAsAAAADAAIAAAAAAAsAAAACAAUAAAAAAAoAAAACAAUAAAD//woAAAABAAUAAAD//wsAAAABAAUAAAABAAsAAAADAAUAAAABAAoAAAADAAUAAAADAAsAAAADAAIAAAADAAoAAAADAAIAAAADAAkAAAADAAIAAAAEAAkAAAADAAIAAAAFAAkAAAADAAIAAAAFAAoAAAADAAIAAAAEAAoAAAADAAIAAAAEAAsAAAADAAIAAAAFAAsAAAADAAIAAAA=")
+tile_set = SubResource("TileSet_bjen6")
+
+[node name="door_cave_with_cave_open" type="TileMapLayer" parent="."]
+visible = false
+z_index = 3
+position = Vector2(194, -772)
+tile_map_data = PackedByteArray("AAD//wkAAAACAAMAAAAAAAkAAAADAAMAAAABAAkAAAAEAAMAAAD+/wkAAAADAAIAAAACAAkAAAADAAIAAAAGAAkAAAADAAIAAAAGAAoAAAADAAIAAAAGAAsAAAADAAIAAAD+/woAAAADAAIAAAD+/wsAAAADAAIAAAACAAoAAAADAAIAAAACAAsAAAADAAIAAAAAAAsAAAADAAQAAAAAAAoAAAAAAAQAAAD//woAAAAFAAMAAAD//wsAAAAFAAMAAAABAAsAAAABAAQAAAABAAoAAAABAAQAAAADAAkAAQAAAAAAAAAEAAkAAQABAAAAAAAFAAkAAQACAAAAAAAFAAoAAQACAAEAAAAEAAoAAQABAAEAAAADAAoAAQAAAAEAAAADAAsAAQAAAAIAAAAEAAsAAQABAAIAAAAFAAsAAQACAAIAAAA=")
+tile_set = SubResource("TileSet_bjen6")
+
+[node name="door_cave_both_open" type="TileMapLayer" parent="."]
+visible = false
+z_index = 3
+position = Vector2(194, -772)
+tile_map_data = PackedByteArray("AAD//wkAAAAEAAQAAAAAAAkAAAAFAAQAAAABAAkAAAAAAAUAAAD+/wkAAAADAAIAAAACAAkAAAADAAIAAAAGAAkAAAADAAIAAAAGAAoAAAADAAIAAAAGAAsAAAADAAIAAAD+/woAAAADAAIAAAD+/wsAAAADAAIAAAACAAoAAAADAAIAAAACAAsAAAADAAIAAAAAAAoAAAACAAUAAAD//woAAAABAAUAAAD//wsAAAAEAAUAAAABAAsAAAAFAAUAAAABAAoAAAADAAUAAAADAAkAAQAAAAAAAAAEAAkAAQABAAAAAAAFAAkAAQACAAAAAAAFAAoAAQACAAEAAAAEAAoAAQABAAEAAAADAAoAAQAAAAEAAAADAAsAAQAAAAIAAAAEAAsAAQABAAIAAAAFAAsAAQACAAIAAAAAAAsAAAACAAUAAAA=")
+tile_set = SubResource("TileSet_bjen6")
+
+[node name="cave_cave_with_second_closed" type="TileMapLayer" parent="."]
+visible = false
+z_index = 3
+position = Vector2(194, -772)
+tile_map_data = PackedByteArray("AAD+/wkAAAADAAIAAAACAAkAAAADAAIAAAAGAAkAAAADAAIAAAAGAAoAAAADAAIAAAAGAAsAAAADAAIAAAD+/woAAAADAAIAAAD+/wsAAAADAAIAAAACAAoAAAADAAIAAAACAAsAAAADAAIAAAADAAkAAAADAAIAAAAEAAkAAAADAAIAAAAFAAkAAAADAAIAAAAFAAoAAAADAAIAAAAFAAsAAAADAAIAAAAEAAsAAAADAAIAAAADAAsAAAADAAIAAAADAAoAAAADAAIAAAAEAAoAAAADAAIAAAD//wkAAQAAAAAAAAAAAAkAAQABAAAAAAABAAkAAQACAAAAAAABAAoAAQACAAEAAAABAAsAAQACAAIAAAAAAAsAAQABAAIAAAAAAAoAAQABAAIAAAD//woAAQAAAAEAAAD//wsAAQAAAAIAAAA=")
+tile_set = SubResource("TileSet_bjen6")
+
+[node name="cave_cave_with_second_open" type="TileMapLayer" parent="."]
+visible = false
+z_index = 3
+position = Vector2(194, -772)
+tile_map_data = PackedByteArray("AAD+/wkAAAADAAIAAAACAAkAAAADAAIAAAAGAAkAAAADAAIAAAAGAAoAAAADAAIAAAAGAAsAAAADAAIAAAD+/woAAAADAAIAAAD+/wsAAAADAAIAAAACAAoAAAADAAIAAAACAAsAAAADAAIAAAAEAAkAAQABAAAAAAD//wkAAQAAAAAAAAAAAAkAAQABAAAAAAABAAkAAQACAAAAAAABAAoAAQACAAEAAAABAAsAAQACAAIAAAAAAAsAAQABAAIAAAAAAAoAAQABAAIAAAD//woAAQAAAAEAAAD//wsAAQAAAAIAAAADAAkAAQAAAAAAAAAFAAkAAQACAAAAAAAFAAoAAQACAAEAAAADAAoAAQAAAAEAAAAEAAoAAQABAAEAAAAEAAsAAQABAAEAAAAFAAsAAQACAAIAAAADAAsAAQAAAAIAAAA=")
+tile_set = SubResource("TileSet_bjen6")
+
+[node name="boss_cave_open" type="TileMapLayer" parent="."]
+visible = false
+z_index = 3
+position = Vector2(194, -772)
+tile_map_data = PackedByteArray("AAD+/wkAAAADAAIAAAD+/woAAAADAAIAAAD+/wsAAAADAAIAAAD//wsAAAADAAIAAAD//woAAAADAAIAAAD//wkAAAADAAIAAAAAAAkAAAADAAIAAAAAAAoAAAADAAIAAAAAAAsAAAADAAIAAAAFAAkAAAADAAIAAAAFAAoAAAADAAIAAAAFAAsAAAADAAIAAAAGAAsAAAADAAIAAAAGAAoAAAADAAIAAAAGAAkAAAADAAIAAAABAAkAAQAAAAAAAAACAAkAAQABAAAAAAADAAkAAQACAAAAAAACAAoAAQABAAEAAAACAAsAAQABAAEAAAABAAoAAQAAAAEAAAABAAsAAQAAAAIAAAADAAsAAQACAAIAAAADAAoAAQACAAEAAAAEAAkAAAADAAIAAAAEAAoAAAADAAIAAAAEAAsAAAADAAIAAAA=")
+tile_set = SubResource("TileSet_bjen6")
+
+[node name="boss_door_open" type="TileMapLayer" parent="."]
+visible = false
+z_index = 3
+position = Vector2(194, -772)
+tile_map_data = PackedByteArray("AAD+/wkAAAADAAIAAAD+/woAAAADAAIAAAD+/wsAAAADAAIAAAD//wsAAAADAAIAAAD//woAAAADAAIAAAD//wkAAAADAAIAAAAAAAkAAAADAAIAAAAAAAoAAAADAAIAAAAAAAsAAAADAAIAAAAFAAkAAAADAAIAAAAFAAoAAAADAAIAAAAFAAsAAAADAAIAAAAGAAsAAAADAAIAAAAGAAoAAAADAAIAAAAGAAkAAAADAAIAAAABAAkAAAAEAAQAAAACAAkAAAAFAAQAAAADAAkAAAAAAAUAAAACAAoAAQABAAEAAAACAAsAAQABAAEAAAABAAoAAAABAAUAAAABAAsAAAABAAUAAAADAAsAAAADAAUAAAADAAoAAAADAAUAAAAEAAkAAAADAAIAAAAEAAoAAAADAAIAAAAEAAsAAAADAAIAAAA=")
+tile_set = SubResource("TileSet_bjen6")
+
+[node name="floor" type="TileMapLayer" parent="."]
+visible = false
+position = Vector2(97, -386)
+tile_map_data = PackedByteArray("AAAAAAgAAgABAAIAAAAAAAkAAgAAAAAAAAAAAAoAAgAAAAMAAAAAAAsAAgAFAAIAAAABAAgAAgABAAIAAAABAAkAAgADAAAAAAABAAoAAgAEAAIAAAABAAsAAgABAAMAAAACAAkAAgABAAAAAAACAAoAAgAAAAMAAAACAAsAAgAAAAMAAAADAAoAAgAFAAAAAAADAAsAAgAEAAEAAAAEAAgAAgABAAIAAAAEAAoAAgABAAIAAAAEAAsAAgABAAIAAAAFAAgAAgABAAIAAAAFAAkAAgABAAIAAAAFAAoAAgAEAAAAAAAFAAsAAgADAAEAAAAGAAgAAgABAAIAAAAGAAkAAgADAAAAAAAGAAoAAgAEAAIAAAAGAAsAAgAAAAMAAAAHAAgAAgABAAIAAAAHAAkAAgACAAAAAAAHAAoAAgABAAMAAAAHAAsAAgAEAAIAAAACAAgAAgABAAIAAAADAAgAAgABAAIAAAADAAkAAgABAAIAAAAEAAkAAgABAAIAAAD//wgAAgABAAIAAAD//wkAAgABAAAAAAD//woAAgAEAAIAAAD//wsAAgABAAMAAAA=")
+tile_set = SubResource("TileSet_wkxg5")
+
+[node name="tower_floor" type="TileMapLayer" parent="."]
+position = Vector2(291, -1158)
+tile_map_data = PackedByteArray("AAD9/xAAAgACAAIAAAD9/xEAAgACAAIAAAD9/xIAAgACAAIAAAD9/xMAAgACAAIAAAD+/xMAAgACAAIAAAD//xMAAgACAAIAAAAAABMAAgACAAIAAAABABMAAgACAAIAAAACABMAAgACAAIAAAADABMAAgACAAIAAAAEABMAAgACAAIAAAAFABMAAgACAAIAAAAFABAAAgACAAIAAAAEABAAAgACAAIAAAADABAAAgACAAIAAAACABAAAgACAAIAAAABABAAAgACAAIAAAAAABAAAgACAAIAAAD//xAAAgACAAIAAAD+/xAAAgACAAIAAAD+/xEAAgACAAIAAAD//xEAAgACAAIAAAAAABEAAgACAAIAAAABABEAAgACAAIAAAACABEAAgACAAIAAAADABEAAgACAAIAAAAEABEAAgACAAIAAAAFABEAAgACAAIAAAAFABIAAgACAAIAAAAEABIAAgACAAIAAAADABIAAgACAAIAAAACABIAAgACAAIAAAABABIAAgACAAIAAAAAABIAAgACAAIAAAD//xIAAgACAAIAAAD+/xIAAgACAAIAAAA=")
+tile_set = SubResource("TileSet_wkxg5")
+script = ExtResource("18_jactb")
+
+[node name="Control" type="Control" parent="tower_floor"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="torch_1" type="AnimatedSprite2D" parent="tower_floor/Control"]
+position = Vector2(-48, 1628)
+sprite_frames = SubResource("SpriteFrames_h44bx")
+animation = &"on"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="tower_floor/Control/torch_1"]
+libraries = {
+"": SubResource("AnimationLibrary_7xgm1")
+}
+
+[node name="torch_2" type="AnimatedSprite2D" parent="tower_floor/Control"]
+position = Vector2(150, 1623)
+sprite_frames = SubResource("SpriteFrames_h44bx")
+animation = &"off"
+
+[node name="torch_3" type="AnimatedSprite2D" parent="tower_floor/Control"]
+position = Vector2(338, 1622)
+sprite_frames = SubResource("SpriteFrames_h44bx")
+animation = &"on"
+frame_progress = 0.0777722
+
+[node name="torch_4" type="AnimatedSprite2D" parent="tower_floor/Control"]
+position = Vector2(-50, 1813)
+sprite_frames = SubResource("SpriteFrames_h44bx")
+animation = &"off"
+
+[node name="torch_5" type="AnimatedSprite2D" parent="tower_floor/Control"]
+position = Vector2(147, 1812)
+sprite_frames = SubResource("SpriteFrames_h44bx")
+animation = &"off"
+
+[node name="torch_6" type="AnimatedSprite2D" parent="tower_floor/Control"]
+position = Vector2(338, 1817)
+sprite_frames = SubResource("SpriteFrames_h44bx")
+animation = &"on"
+frame_progress = 0.824221
+
+[node name="collision_single_door" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+script = ExtResource("18_hpnd3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision_single_door"]
+position = Vector2(530, 307)
+shape = SubResource("RectangleShape2D_l7ld8")
 
 [connection signal="focus_entered" from="walls/button_exit" to="walls/button_exit" method="_on_focus_entered"]
 [connection signal="mouse_entered" from="walls/button_exit" to="walls/button_exit" method="_on_mouse_entered"]
