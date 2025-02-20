@@ -2,30 +2,18 @@ extends CharacterBody2D
 
 var speed : int
 var local_game_start : bool = false
-var local_narrator_start_dialogue_end : bool = false
 
 
 func _ready():
 	speed = 200
 	Menu.game_start.connect(on_button_play_pressed_received)
-	Menu.level_1.connect(on_level_1_received)
-	Narrative.narrator_end_0.connect(on_narrator_start_dialogue_end_received)
 	
 func on_button_play_pressed_received():
 	local_game_start = true	
-#
-func on_narrator_start_dialogue_end_received():
-	local_narrator_start_dialogue_end = true
-
-func on_level_1_received():
-	local_game_start = false
-	await get_tree().create_timer(0.3).timeout
-	local_game_start = true
-	
 
 func get_input():
 
-	if local_game_start && local_narrator_start_dialogue_end:
+	if local_game_start :
 	
 		#keyboard input
 		var input_dir = Input.get_vector("left", "right", "up", "down")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://iv2qx76lb6u7"]
+[gd_scene load_steps=51 format=4 uid="uid://iv2qx76lb6u7"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_6m0vk"]
 [ext_resource type="Texture2D" uid="uid://cfcrgjkmbjno4" path="res://TileSets/level_0_basicStage_TileMap.png" id="1_gl7wn"]
@@ -11,18 +11,26 @@
 [ext_resource type="Script" path="res://Scripts/button_exit.gd" id="8_km7jl"]
 [ext_resource type="Script" path="res://Scripts/HitBox.gd" id="8_xor5r"]
 [ext_resource type="Texture2D" uid="uid://16yuoonmw0na" path="res://Character/char_up.png" id="8_xskcm"]
+[ext_resource type="Script" path="res://hurt_box_player.gd" id="9_hp62i"]
 [ext_resource type="Texture2D" uid="uid://bthod3e1galam" path="res://TileSets/cave_wall.png" id="9_tbyyv"]
 [ext_resource type="Texture2D" uid="uid://buing1u2kqwmt" path="res://UI/sword.png" id="12_f8jpm"]
 [ext_resource type="FontFile" uid="uid://b77j6j7usxa2v" path="res://Fonts/Orange Kid.otf" id="12_m2cs5"]
 [ext_resource type="Script" path="res://Scripts/textbox_container.gd" id="13_752kv"]
 [ext_resource type="Script" path="res://Scripts/template_text_label.gd" id="13_wdwoa"]
 [ext_resource type="Script" path="res://Scripts/HurtBox.gd" id="15_8outu"]
+[ext_resource type="Script" path="res://player_2.gd" id="17_dyw36"]
 [ext_resource type="Script" path="res://Scripts/collision_single_door.gd" id="18_hpnd3"]
 [ext_resource type="Script" path="res://tower_floor.gd" id="18_jactb"]
 [ext_resource type="Texture2D" uid="uid://meubgtl3g2u8" path="res://Objects/torch_1.png" id="18_tenx8"]
 [ext_resource type="Texture2D" uid="uid://dcnet2wwjge3u" path="res://Objects/torch_2.png" id="19_r1u8y"]
 [ext_resource type="Texture2D" uid="uid://ivkw6vehiekr" path="res://Objects/torch_3.png" id="20_5bb3g"]
 [ext_resource type="Texture2D" uid="uid://bit51jlgavu1r" path="res://Objects/torch_4.png" id="21_r1unc"]
+[ext_resource type="Script" path="res://arrow.gd" id="24_acfnb"]
+[ext_resource type="Texture2D" uid="uid://dyf0dacp61r24" path="res://Objects/arrow_down.png" id="25_75ay4"]
+[ext_resource type="Texture2D" uid="uid://c5irvqadadrmh" path="res://Objects/arrow_left.png" id="26_ybya0"]
+[ext_resource type="Texture2D" uid="uid://dhbwubw3tkmd2" path="res://Objects/arrow.png" id="27_iil50"]
+[ext_resource type="Texture2D" uid="uid://b4jun7jq8tk0x" path="res://Objects/arrow_up.png" id="28_fxdip"]
+[ext_resource type="Script" path="res://hit_box_arrow.gd" id="29_bspab"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w3an0"]
 animations = [{
@@ -61,6 +69,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kj0br"]
 size = Vector2(29, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smff2"]
+size = Vector2(69, 74)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ka70"]
 size = Vector2(49, 14)
@@ -1777,6 +1788,21 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_w0ka4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_d5xan"]
 resource_name = "lit"
 length = 1.5
@@ -1794,21 +1820,6 @@ tracks/0/keys = {
 "values": [0, 1, 2]
 }
 
-[sub_resource type="Animation" id="Animation_w0ka4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7xgm1"]
 _data = {
 "RESET": SubResource("Animation_w0ka4"),
@@ -1817,6 +1828,44 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7ld8"]
 size = Vector2(216, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7kctv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_75ay4")
+}],
+"loop": true,
+"name": &"arrow_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_ybya0")
+}],
+"loop": true,
+"name": &"arrow_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_iil50")
+}],
+"loop": true,
+"name": &"arrow_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_fxdip")
+}],
+"loop": true,
+"name": &"arrow_up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61mfu"]
+size = Vector2(56.9787, 20)
 
 [node name="Menu" type="Node2D"]
 y_sort_enabled = true
@@ -1850,6 +1899,15 @@ script = ExtResource("8_xor5r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AnimatedSprite2D/HitBox"]
 position = Vector2(564.5, 698.5)
 shape = SubResource("RectangleShape2D_kj0br")
+
+[node name="HurtBox_Player" type="Area2D" parent="Player/AnimatedSprite2D"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("9_hp62i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AnimatedSprite2D/HurtBox_Player"]
+position = Vector2(-0.5, 13)
+shape = SubResource("RectangleShape2D_smff2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(411, 622)
@@ -1975,9 +2033,10 @@ offset_bottom = 563.0
 texture = ExtResource("12_f8jpm")
 
 [node name="Player2" type="CharacterBody2D" parent="."]
-z_index = 5
+z_index = 6
 y_sort_enabled = true
 position = Vector2(115, -119)
+script = ExtResource("17_dyw36")
 
 [node name="AnimatedSprite2D_2" type="AnimatedSprite2D" parent="Player2"]
 texture_filter = 1
@@ -1985,12 +2044,12 @@ position = Vector2(410, 582)
 sprite_frames = SubResource("SpriteFrames_w3an0")
 animation = &"walk_down"
 
-[node name="HurtBox" type="Area2D" parent="Player2/AnimatedSprite2D_2"]
+[node name="HurtBox_Enemy" type="Area2D" parent="Player2/AnimatedSprite2D_2"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("15_8outu")
 
-[node name="CollisionShape2D_Hurt" type="CollisionShape2D" parent="Player2/AnimatedSprite2D_2/HurtBox"]
+[node name="CollisionShape2D_Hurt" type="CollisionShape2D" parent="Player2/AnimatedSprite2D_2/HurtBox_Enemy"]
 position = Vector2(2, 7)
 shape = SubResource("RectangleShape2D_uq5in")
 
@@ -2130,6 +2189,27 @@ script = ExtResource("18_hpnd3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collision_single_door"]
 position = Vector2(530, 307)
 shape = SubResource("RectangleShape2D_l7ld8")
+
+[node name="arrow" type="CharacterBody2D" parent="."]
+z_index = 5
+y_sort_enabled = true
+position = Vector2(0, -170)
+script = ExtResource("24_acfnb")
+
+[node name="arrow_sprite" type="AnimatedSprite2D" parent="arrow"]
+position = Vector2(529, 481)
+scale = Vector2(0.375, 0.354167)
+sprite_frames = SubResource("SpriteFrames_7kctv")
+animation = &"arrow_right"
+
+[node name="HitBox_Arrow" type="Area2D" parent="arrow/arrow_sprite"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("29_bspab")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arrow/arrow_sprite/HitBox_Arrow"]
+position = Vector2(18.4893, 0)
+shape = SubResource("RectangleShape2D_61mfu")
 
 [connection signal="focus_entered" from="walls/button_exit" to="walls/button_exit" method="_on_focus_entered"]
 [connection signal="mouse_entered" from="walls/button_exit" to="walls/button_exit" method="_on_mouse_entered"]
