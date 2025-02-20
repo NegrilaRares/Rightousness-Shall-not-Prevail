@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://iv2qx76lb6u7"]
+[gd_scene load_steps=51 format=4 uid="uid://iv2qx76lb6u7"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_6m0vk"]
 [ext_resource type="Texture2D" uid="uid://cfcrgjkmbjno4" path="res://TileSets/level_0_basicStage_TileMap.png" id="1_gl7wn"]
@@ -24,7 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://meubgtl3g2u8" path="res://Objects/torch_1.png" id="18_tenx8"]
 [ext_resource type="Texture2D" uid="uid://dcnet2wwjge3u" path="res://Objects/torch_2.png" id="19_r1u8y"]
 [ext_resource type="Texture2D" uid="uid://ivkw6vehiekr" path="res://Objects/torch_3.png" id="20_5bb3g"]
-[ext_resource type="Script" path="res://collision_left_door.gd" id="20_7ws17"]
 [ext_resource type="Texture2D" uid="uid://bit51jlgavu1r" path="res://Objects/torch_4.png" id="21_r1unc"]
 [ext_resource type="Script" path="res://arrow.gd" id="24_acfnb"]
 [ext_resource type="Texture2D" uid="uid://dyf0dacp61r24" path="res://Objects/arrow_down.png" id="25_75ay4"]
@@ -1428,6 +1427,9 @@ bg_color = Color(0.2408, 0.25112, 0.86, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uq5in"]
 size = Vector2(105, 101)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7ld8"]
+size = Vector2(216, 26)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tdm7t"]
 texture = ExtResource("1_gl7wn")
 texture_region_size = Vector2i(96, 96)
@@ -1827,9 +1829,6 @@ _data = {
 "lit": SubResource("Animation_d5xan")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7ld8"]
-size = Vector2(216, 26)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_7kctv"]
 animations = [{
 "frames": [{
@@ -2059,6 +2058,7 @@ position = Vector2(410.5, 623)
 shape = SubResource("RectangleShape2D_3ka70")
 
 [node name="single_door_closed" type="TileMapLayer" parent="."]
+visible = false
 z_index = 3
 position = Vector2(97, -386)
 tile_map_data = PackedByteArray("AAAAAAUAAAADAAIAAAABAAUAAAADAAIAAAACAAUAAAADAAIAAAD//wUAAAADAAIAAAAFAAUAAAAEAAMAAAAFAAYAAAABAAQAAAAGAAYAAAADAAIAAAAFAAcAAAABAAQAAAAEAAcAAAADAAQAAAAEAAYAAAAAAAQAAAAEAAUAAAADAAMAAAADAAUAAAACAAMAAAADAAYAAAAFAAMAAAACAAYAAAADAAIAAAADAAcAAAAFAAMAAAACAAcAAAADAAIAAAABAAcAAAADAAIAAAAAAAcAAAADAAIAAAD//wcAAAADAAIAAAD//wYAAAADAAIAAAAAAAYAAAADAAIAAAABAAYAAAADAAIAAAAHAAYAAAADAAIAAAAHAAUAAAADAAIAAAAGAAUAAAADAAIAAAAHAAcAAAADAAIAAAAGAAcAAAADAAIAAAA=")
@@ -2079,11 +2079,20 @@ tile_map_data = PackedByteArray("AAD//wkAAAACAAMAAAAAAAkAAAADAAMAAAABAAkAAAAEAAM
 tile_set = SubResource("TileSet_bjen6")
 
 [node name="door_cave_with_door_open" type="TileMapLayer" parent="."]
-visible = false
 z_index = 3
 position = Vector2(194, -772)
 tile_map_data = PackedByteArray("AAD//wkAAAAEAAQAAAAAAAkAAAAFAAQAAAABAAkAAAAAAAUAAAD+/wkAAAADAAIAAAACAAkAAAADAAIAAAAGAAkAAAADAAIAAAAGAAoAAAADAAIAAAAGAAsAAAADAAIAAAD+/woAAAADAAIAAAD+/wsAAAADAAIAAAACAAoAAAADAAIAAAACAAsAAAADAAIAAAAAAAsAAAACAAUAAAAAAAoAAAACAAUAAAD//woAAAABAAUAAAD//wsAAAABAAUAAAABAAsAAAADAAUAAAABAAoAAAADAAUAAAADAAsAAAADAAIAAAADAAoAAAADAAIAAAADAAkAAAADAAIAAAAEAAkAAAADAAIAAAAFAAkAAAADAAIAAAAFAAoAAAADAAIAAAAEAAoAAAADAAIAAAAEAAsAAAADAAIAAAAFAAsAAAADAAIAAAA=")
 tile_set = SubResource("TileSet_bjen6")
+
+[node name="collision_left_door" type="Area2D" parent="door_cave_with_door_open"]
+position = Vector2(-194, 772)
+collision_layer = 0
+collision_mask = 256
+script = ExtResource("18_hpnd3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door_cave_with_door_open/collision_left_door"]
+position = Vector2(243, 303)
+shape = SubResource("RectangleShape2D_l7ld8")
 
 [node name="door_cave_with_cave_open" type="TileMapLayer" parent="."]
 visible = false
@@ -2133,7 +2142,6 @@ tile_map_data = PackedByteArray("AAAAAAgAAgABAAIAAAAAAAkAAgAAAAAAAAAAAAoAAgAAAAM
 tile_set = SubResource("TileSet_wkxg5")
 
 [node name="tower_floor" type="TileMapLayer" parent="."]
-visible = false
 position = Vector2(291, -1158)
 tile_map_data = PackedByteArray("AAD9/xAAAgACAAIAAAD9/xEAAgACAAIAAAD9/xIAAgACAAIAAAD9/xMAAgACAAIAAAD+/xMAAgACAAIAAAD//xMAAgACAAIAAAAAABMAAgACAAIAAAABABMAAgACAAIAAAACABMAAgACAAIAAAADABMAAgACAAIAAAAEABMAAgACAAIAAAAFABMAAgACAAIAAAAFABAAAgACAAIAAAAEABAAAgACAAIAAAADABAAAgACAAIAAAACABAAAgACAAIAAAABABAAAgACAAIAAAAAABAAAgACAAIAAAD//xAAAgACAAIAAAD+/xAAAgACAAIAAAD+/xEAAgACAAIAAAD//xEAAgACAAIAAAAAABEAAgACAAIAAAABABEAAgACAAIAAAACABEAAgACAAIAAAADABEAAgACAAIAAAAEABEAAgACAAIAAAAFABEAAgACAAIAAAAFABIAAgACAAIAAAAEABIAAgACAAIAAAADABIAAgACAAIAAAACABIAAgACAAIAAAABABIAAgACAAIAAAAAABIAAgACAAIAAAD//xIAAgACAAIAAAD+/xIAAgACAAIAAAA=")
 tile_set = SubResource("TileSet_wkxg5")
@@ -2204,15 +2212,6 @@ animation = &"on"
 libraries = {
 "": SubResource("AnimationLibrary_7xgm1")
 }
-
-[node name="collision_left_door" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 256
-script = ExtResource("20_7ws17")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="collision_left_door"]
-position = Vector2(243, 303)
-shape = SubResource("RectangleShape2D_l7ld8")
 
 [node name="collision_single_door" type="Area2D" parent="."]
 collision_layer = 0

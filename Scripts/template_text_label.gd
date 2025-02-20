@@ -30,6 +30,10 @@ const CHAR_READ_RATE = 0.5
 
 signal narrator_end_0
 signal level_1
+signal level_1_up
+signal level_1_down 
+signal level_2
+
 
 # Public function to dynamically register UI elements
 func set_ui_elements(text_right: Label, text_end: Label, image_sword: TextureRect, title_sword: Label, title_narrator: Label):
@@ -202,3 +206,10 @@ func enter_level_1():
 	Narrative.level_1.emit()
 	#local_stage_text_click = // whatever comes after the tutorial tuhinmng dont forget await after teleport
 	
+func enter_level_2():
+	hide_all_stage_elements()
+	if is_instance_valid(tile_single_door_closed): 
+		tile_single_door_closed.show()
+	if is_instance_valid(tile_tower_floor): 
+		tile_tower_floor.show()
+	Narrative.level_2.emit()
