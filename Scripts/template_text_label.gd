@@ -20,9 +20,12 @@ var tile_boss_cave_open: TileMapLayer = null
 var tile_boss_door_open: TileMapLayer = null
 var tile_tower_floor: TileMapLayer = null
 var tile_floor: TileMapLayer = null
+var tile_door_door_with_second_closed : TileMapLayer = null
+var tile_door_door_with_second_open : TileMapLayer = null
 
 
 var local_game_start : bool = false
+var local_level : int = 0
 var key_pressed_last_frame: bool = false
 var local_stage_text_click : int = 0
 const CHAR_READ_RATE = 0.5
@@ -33,6 +36,13 @@ signal level_1
 signal level_1_up
 signal level_1_down 
 signal level_2
+
+signal torch_1_touched
+signal torch_2_touched
+signal torch_3_touched
+signal torch_4_touched
+signal torch_5_touched
+signal torch_6_touched
 
 
 # Public function to dynamically register UI elements
@@ -50,7 +60,8 @@ func set_stage_elements(
 	door_cave_with_cave_open: TileMapLayer, door_cave_both_open: TileMapLayer,
 	cave_cave_with_second_closed: TileMapLayer, cave_cave_with_second_open: TileMapLayer,
 	boss_cave_open: TileMapLayer, boss_door_open: TileMapLayer,
-	tower_floor: TileMapLayer, floor: TileMapLayer):
+	tower_floor: TileMapLayer, floor: TileMapLayer,
+	door_door_with_second_closed: TileMapLayer, door_door_with_second_open: TileMapLayer):
 		
 	tile_single_door_closed = single_door_closed
 	tile_single_door_open = single_door_open
@@ -64,6 +75,8 @@ func set_stage_elements(
 	tile_boss_door_open = boss_door_open
 	tile_tower_floor = tower_floor
 	tile_floor = floor
+	tile_door_door_with_second_closed = door_door_with_second_closed
+	tile_door_door_with_second_open = door_door_with_second_open
 
 
 func _ready():
@@ -80,6 +93,7 @@ func _process(_delta):
 	
 func get_input():
 	if local_game_start:
+		await get_tree().create_timer(0.5).timeout
 		var key_pressed_now = Input.is_key_pressed(KEY_R)
 		
 		# Ensure key press is only counted once per press
@@ -199,17 +213,37 @@ func hide_all_stage_elements():
 		
 func enter_level_1():
 	hide_all_stage_elements()
-	if is_instance_valid(tile_door_cave_closed): 
-		tile_door_cave_closed.show()
-	if is_instance_valid(tile_tower_floor): 
-		tile_tower_floor.show()
-	Narrative.level_1.emit()
-	#local_stage_text_click = // whatever comes after the tutorial tuhinmng dont forget await after teleport
+	if local_level == 0:
+		if is_instance_valid(tile_door_cave_closed): 
+			tile_door_cave_closed.show()
+		if is_instance_valid(tile_tower_floor): 
+			tile_tower_floor.show()
+		Narrative.level_1.emit()
+		#local_stage_text_click = // whatever comes after the tutorial tuhinmng dont forget await after teleport
+	if local_level == 1:
+		print("gg")
+	if local_level == 2:
+		if is_instance_valid(tile_door_cave_with_door_open): 
+			tile_door_cave_with_door_open.show()
+		if is_instance_valid(tile_tower_floor): 
+			tile_tower_floor.show()
+		if is_instance_valid(tile_door_door_with_second_closed): 
+			tile_door_door_with_second_closed.hide()
+		Narrative.level_1.emit()
+	if local_level == -1:
+		if is_instance_valid(tile_door_cave_with_cave_open): 
+			tile_door_cave_with_cave_open.show()
+		if is_instance_valid(tile_tower_floor): 
+			tile_tower_floor.show()
+		Narrative.level_1.emit()
+		
+	local_level = 1
 	
 func enter_level_2():
+	local_level = 2
 	hide_all_stage_elements()
-	if is_instance_valid(tile_single_door_closed): 
-		tile_single_door_closed.show()
+	if is_instance_valid(tile_door_door_with_second_closed): 
+		tile_door_door_with_second_closed.show()
 	if is_instance_valid(tile_tower_floor): 
 		tile_tower_floor.show()
 	Narrative.level_2.emit()

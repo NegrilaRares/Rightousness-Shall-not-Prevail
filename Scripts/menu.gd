@@ -21,5 +21,7 @@ func _ready():
 		$boss_cave_open,
 		$boss_door_open,
 		$tower_floor,
-		$floor
+		$floor,
+		$door_door_with_second_closed,
+		$door_door_with_second_open
 	)
