@@ -3,7 +3,11 @@ extends CharacterBody2D
 
 @onready var menu = get_tree().get_root().get_node("Menu")
 @onready var arrow = get_node("../arrow")
-var speed = 50
+@onready var target = $"../Player/AnimatedSprite2D"
+
+@onready var previous_dir = arrow.arrow_direction
+
+var speed = 190 
 
 var right : Vector2 = Vector2(1, 0)
 var left : Vector2 = Vector2(-1, 0)
@@ -15,14 +19,15 @@ func _ready():
 	print(arrow)
 	
 func _process(delta: float) -> void:
-	
-	if arrow.can_move():
-		velocity = left.normalized() * speed	
-		move_and_slide()
+	if is_instance_valid($"../Player"):
+		if arrow.can_move() && $AnimatedSprite2D_2/near_hitbox.is_near_enemy:
+			var input_dir
+			if $"../Player".input_dir != null:
+				input_dir = $"../Player".input_dir
+				velocity = input_dir.normalized() * speed	
+				
+				var dominant_direction = ""
 
-<<<<<<< Updated upstream
-	shoot()
-=======
 				if abs(velocity.x) > abs(velocity.y):
 					if velocity.x > 0:
 						dominant_direction = "Right"
@@ -59,16 +64,63 @@ func _process(delta: float) -> void:
 			#previous_dir = 	arrow.arrow_dir()
 			
 		#$"../arrow".arrow_is_moving = false
->>>>>>> Stashed changes
 
 	
-
 func shoot():
-	if arrow.arrow_dir() == 1:
-		arrow.arrow_shoot(right)
-	elif arrow.arrow_dir() == 2:
-		arrow.arrow_shoot(left)
-	elif arrow.arrow_dir() == 3:
-		arrow.arrow_shoot(up)
-	elif arrow.arrow_dir() == 4:
-		arrow.arrow_shoot(down)
+
+	if previous_dir == arrow.arrow_dir():
+		if arrow.arrow_dir() == 1:
+			arrow.arrow_shoot(left)
+			$AnimatedSprite2D_2.animation = "walk_left"
+		elif arrow.arrow_dir() == 2:
+			arrow.arrow_shoot(right)
+			$AnimatedSprite2D_2.animation = "walk_right"
+		elif arrow.arrow_dir() == 3:
+			arrow.arrow_shoot(up)
+			$AnimatedSprite2D_2.animation = "walk_up"
+		elif arrow.arrow_dir() == 4:
+			arrow.arrow_shoot(down)
+			$AnimatedSprite2D_2.animation = "walk_down"
+			
+
+	
+	elif arrow.is_destroyed:
+
+		$"../arrow".position = (self.position) - (Vector2(115, -119))
+		previous_dir = arrow.arrow_dir()
+	elif arrow.arrow_is_moving:
+		if previous_dir == 1:
+			arrow.arrow_shoot(left)
+		elif previous_dir == 2:
+			arrow.arrow_shoot(right)
+		elif previous_dir == 3:
+			arrow.arrow_shoot(up)
+		elif previous_dir == 4:
+			arrow.arrow_shoot(down)
+
+	
+		#else:
+			#if previous_dir == 1:
+				#arrow.arrow_shoot(left)
+			#elif previous_dir == 2:
+				#arrow.arrow_shoot(right)
+			#elif previous_dir == 3:
+				#arrow.arrow_shoot(up)
+			#elif previous_dir == 4:
+				#arrow.arrow_shoot(down)
+			#
+	#else:
+		#if !arrow.arrow_is_moving:
+			#$"../arrow".position = (self.position) - (Vector2(115, -119))
+			#previous_dir = arrow.arrow_dir()
+		#else:
+			#if previous_dir == 1:
+				#arrow.arrow_shoot(left)
+			#elif previous_dir == 2:
+				#arrow.arrow_shoot(right)
+			#elif previous_dir == 3:
+				#arrow.arrow_shoot(up)
+			#elif previous_dir == 4:
+				#arrow.arrow_shoot(down)
+					
+		

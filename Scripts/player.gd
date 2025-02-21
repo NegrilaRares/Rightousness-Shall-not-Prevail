@@ -3,7 +3,7 @@ extends CharacterBody2D
 var speed : int
 var local_game_start : bool = false
 var local_narrator_start_dialogue_end : bool = false
-
+var input_dir
 
 func _ready():
 	speed = 200
@@ -28,7 +28,7 @@ func get_input():
 	if local_game_start && local_narrator_start_dialogue_end:
 	
 		#keyboard input
-		var input_dir = Input.get_vector("left", "right", "up", "down")
+		input_dir = Input.get_vector("left", "right", "up", "down")
 		velocity = input_dir.normalized() * speed
 		
 		
