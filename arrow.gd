@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 
-var speed = 400
+var speed = 10
+
 var delay = 100
 
 

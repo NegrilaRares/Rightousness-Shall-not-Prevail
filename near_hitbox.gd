@@ -29,6 +29,5 @@ func _process(delta: float) -> void:
 
 	if in_range:
 		is_near_enemy = true
-		print("near enemy")
 	else:
 		is_near_enemy = false

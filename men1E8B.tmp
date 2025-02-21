@@ -1928,7 +1928,7 @@ script = ExtResource("13_wdwoa")
 [node name="Player" type="CharacterBody2D" parent="."]
 z_index = 6
 y_sort_enabled = true
-position = Vector2(374, -168)
+position = Vector2(354, 93)
 script = ExtResource("4_wrtys")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
@@ -2389,7 +2389,7 @@ shape = SubResource("RectangleShape2D_61mfu")
 [node name="Player3" type="CharacterBody2D" parent="."]
 z_index = 6
 y_sort_enabled = true
-position = Vector2(-53, -161)
+position = Vector2(-54, -165)
 script = ExtResource("47_f88qd")
 
 [node name="AnimatedSprite2D_2" type="AnimatedSprite2D" parent="Player3"]
@@ -2421,7 +2421,7 @@ shape = SubResource("RectangleShape2D_3ka70")
 [node name="Player4" type="CharacterBody2D" parent="."]
 z_index = 6
 y_sort_enabled = true
-position = Vector2(-329, 99)
+position = Vector2(-57, 99)
 script = ExtResource("45_f0puk")
 
 [node name="AnimatedSprite2D_2" type="AnimatedSprite2D" parent="Player4"]
@@ -2452,8 +2452,6 @@ shape = SubResource("RectangleShape2D_3ka70")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
-
-[node name="Timer2" type="Timer" parent="."]
 
 [connection signal="focus_entered" from="walls/button_exit" to="walls/button_exit" method="_on_focus_entered"]
 [connection signal="mouse_entered" from="walls/button_exit" to="walls/button_exit" method="_on_mouse_entered"]
