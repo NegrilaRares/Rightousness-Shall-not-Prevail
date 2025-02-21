@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://iv2qx76lb6u7"]
+[gd_scene load_steps=60 format=4 uid="uid://iv2qx76lb6u7"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_6m0vk"]
 [ext_resource type="Texture2D" uid="uid://cfcrgjkmbjno4" path="res://TileSets/level_0_basicStage_TileMap.png" id="1_gl7wn"]
@@ -28,10 +28,16 @@
 [ext_resource type="Texture2D" uid="uid://bit51jlgavu1r" path="res://Objects/torch_4.png" id="21_r1unc"]
 [ext_resource type="Script" path="res://arrow.gd" id="24_acfnb"]
 [ext_resource type="Texture2D" uid="uid://dyf0dacp61r24" path="res://Objects/arrow_down.png" id="25_75ay4"]
+[ext_resource type="Script" path="res://area_torch.gd" id="25_inrcx"]
+[ext_resource type="Script" path="res://area_torch_2.gd" id="26_g4gej"]
 [ext_resource type="Texture2D" uid="uid://c5irvqadadrmh" path="res://Objects/arrow_left.png" id="26_ybya0"]
 [ext_resource type="Texture2D" uid="uid://dhbwubw3tkmd2" path="res://Objects/arrow.png" id="27_iil50"]
+[ext_resource type="Script" path="res://area_torch_3.gd" id="27_jcpk2"]
+[ext_resource type="Script" path="res://area_torch_4.gd" id="28_d81hu"]
 [ext_resource type="Texture2D" uid="uid://b4jun7jq8tk0x" path="res://Objects/arrow_up.png" id="28_fxdip"]
 [ext_resource type="Script" path="res://hit_box_arrow.gd" id="29_bspab"]
+[ext_resource type="Script" path="res://area_torch_5.gd" id="29_w6gvp"]
+[ext_resource type="Script" path="res://area_torch_6.gd" id="30_nih4a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w3an0"]
 animations = [{
@@ -1827,6 +1833,11 @@ _data = {
 "lit": SubResource("Animation_d5xan")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eao6l"]
+size = Vector2(38, 97)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khu16"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7ld8"]
 size = Vector2(216, 26)
 
@@ -2127,6 +2138,20 @@ position = Vector2(194, -772)
 tile_map_data = PackedByteArray("AAD+/wkAAAADAAIAAAD+/woAAAADAAIAAAD+/wsAAAADAAIAAAD//wsAAAADAAIAAAD//woAAAADAAIAAAD//wkAAAADAAIAAAAAAAkAAAADAAIAAAAAAAoAAAADAAIAAAAAAAsAAAADAAIAAAAFAAkAAAADAAIAAAAFAAoAAAADAAIAAAAFAAsAAAADAAIAAAAGAAsAAAADAAIAAAAGAAoAAAADAAIAAAAGAAkAAAADAAIAAAABAAkAAAAEAAQAAAACAAkAAAAFAAQAAAADAAkAAAAAAAUAAAACAAoAAQABAAEAAAACAAsAAQABAAEAAAABAAoAAAABAAUAAAABAAsAAAABAAUAAAADAAsAAAADAAUAAAADAAoAAAADAAUAAAAEAAkAAAADAAIAAAAEAAoAAAADAAIAAAAEAAsAAAADAAIAAAA=")
 tile_set = SubResource("TileSet_bjen6")
 
+[node name="door_door_with_second_closed" type="TileMapLayer" parent="."]
+visible = false
+z_index = 3
+position = Vector2(194, -772)
+tile_map_data = PackedByteArray("AAD+/wkAAAADAAIAAAACAAkAAAADAAIAAAAGAAkAAAADAAIAAAAGAAoAAAADAAIAAAAGAAsAAAADAAIAAAD+/woAAAADAAIAAAD+/wsAAAADAAIAAAACAAoAAAADAAIAAAACAAsAAAADAAIAAAADAAkAAAACAAMAAAAEAAkAAAADAAMAAAAFAAkAAAAEAAMAAAAFAAoAAAABAAQAAAAFAAsAAAABAAQAAAAEAAsAAAADAAQAAAADAAsAAAACAAQAAAADAAoAAAACAAQAAAAEAAoAAAAAAAQAAAABAAoAAAADAAUAAAABAAsAAAADAAUAAAAAAAsAAAACAAUAAAAAAAoAAAACAAUAAAD//woAAAABAAUAAAD//wsAAAABAAUAAAD//wkAAAAEAAQAAAAAAAkAAAAFAAQAAAABAAkAAAAAAAUAAAA=")
+tile_set = SubResource("TileSet_bjen6")
+
+[node name="door_door_with_second_open" type="TileMapLayer" parent="."]
+visible = false
+z_index = 3
+position = Vector2(194, -772)
+tile_map_data = PackedByteArray("AAD+/wkAAAADAAIAAAACAAkAAAADAAIAAAAGAAkAAAADAAIAAAAGAAoAAAADAAIAAAAGAAsAAAADAAIAAAD+/woAAAADAAIAAAD+/wsAAAADAAIAAAACAAoAAAADAAIAAAACAAsAAAADAAIAAAAEAAkAAAAFAAQAAAD//wkAAAAEAAQAAAAAAAkAAAAFAAQAAAABAAkAAAAAAAUAAAABAAoAAAADAAUAAAABAAsAAAADAAUAAAAAAAsAAAACAAUAAAAAAAoAAAACAAUAAAD//woAAAABAAUAAAD//wsAAAABAAUAAAADAAkAAAAEAAQAAAAFAAkAAAAAAAUAAAAFAAoAAAADAAUAAAADAAoAAAABAAUAAAAEAAoAAAACAAUAAAAEAAsAAAACAAUAAAAFAAsAAAADAAUAAAADAAsAAAABAAUAAAA=")
+tile_set = SubResource("TileSet_bjen6")
+
 [node name="floor" type="TileMapLayer" parent="."]
 position = Vector2(97, -386)
 tile_map_data = PackedByteArray("AAAAAAgAAgABAAIAAAAAAAkAAgAAAAAAAAAAAAoAAgAAAAMAAAAAAAsAAgAFAAIAAAABAAgAAgABAAIAAAABAAkAAgADAAAAAAABAAoAAgAEAAIAAAABAAsAAgABAAMAAAACAAkAAgABAAAAAAACAAoAAgAAAAMAAAACAAsAAgAAAAMAAAADAAoAAgAFAAAAAAADAAsAAgAEAAEAAAAEAAgAAgABAAIAAAAEAAoAAgABAAIAAAAEAAsAAgABAAIAAAAFAAgAAgABAAIAAAAFAAkAAgABAAIAAAAFAAoAAgAEAAAAAAAFAAsAAgADAAEAAAAGAAgAAgABAAIAAAAGAAkAAgADAAAAAAAGAAoAAgAEAAIAAAAGAAsAAgAAAAMAAAAHAAgAAgABAAIAAAAHAAkAAgACAAAAAAAHAAoAAgABAAMAAAAHAAsAAgAEAAIAAAACAAgAAgABAAIAAAADAAgAAgABAAIAAAADAAkAAgABAAIAAAAEAAkAAgABAAIAAAD//wgAAgABAAIAAAD//wkAAgABAAAAAAD//woAAgAEAAIAAAD//wsAAgABAAMAAAA=")
@@ -2155,6 +2180,13 @@ libraries = {
 "": SubResource("AnimationLibrary_7xgm1")
 }
 
+[node name="area_torch_1" type="Area2D" parent="tower_floor/Control_Torch/torch_1"]
+script = ExtResource("25_inrcx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tower_floor/Control_Torch/torch_1/area_torch_1"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_eao6l")
+
 [node name="torch_2" type="AnimatedSprite2D" parent="tower_floor/Control_Torch"]
 position = Vector2(150, 1623)
 sprite_frames = SubResource("SpriteFrames_h44bx")
@@ -2164,6 +2196,12 @@ animation = &"on"
 libraries = {
 "": SubResource("AnimationLibrary_7xgm1")
 }
+
+[node name="area_torch_2" type="Area2D" parent="tower_floor/Control_Torch/torch_2"]
+script = ExtResource("26_g4gej")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tower_floor/Control_Torch/torch_2/area_torch_2"]
+shape = SubResource("RectangleShape2D_khu16")
 
 [node name="torch_3" type="AnimatedSprite2D" parent="tower_floor/Control_Torch"]
 position = Vector2(338, 1622)
@@ -2175,6 +2213,12 @@ libraries = {
 "": SubResource("AnimationLibrary_7xgm1")
 }
 
+[node name="area_torch_3" type="Area2D" parent="tower_floor/Control_Torch/torch_3"]
+script = ExtResource("27_jcpk2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tower_floor/Control_Torch/torch_3/area_torch_3"]
+shape = SubResource("RectangleShape2D_khu16")
+
 [node name="torch_4" type="AnimatedSprite2D" parent="tower_floor/Control_Torch"]
 position = Vector2(-50, 1813)
 sprite_frames = SubResource("SpriteFrames_h44bx")
@@ -2184,6 +2228,12 @@ animation = &"on"
 libraries = {
 "": SubResource("AnimationLibrary_7xgm1")
 }
+
+[node name="area_torch_4" type="Area2D" parent="tower_floor/Control_Torch/torch_4"]
+script = ExtResource("28_d81hu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tower_floor/Control_Torch/torch_4/area_torch_4"]
+shape = SubResource("RectangleShape2D_khu16")
 
 [node name="torch_5" type="AnimatedSprite2D" parent="tower_floor/Control_Torch"]
 position = Vector2(147, 1812)
@@ -2195,6 +2245,12 @@ libraries = {
 "": SubResource("AnimationLibrary_7xgm1")
 }
 
+[node name="area_torch_5" type="Area2D" parent="tower_floor/Control_Torch/torch_5"]
+script = ExtResource("29_w6gvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tower_floor/Control_Torch/torch_5/area_torch_5"]
+shape = SubResource("RectangleShape2D_khu16")
+
 [node name="torch_6" type="AnimatedSprite2D" parent="tower_floor/Control_Torch"]
 position = Vector2(338, 1817)
 sprite_frames = SubResource("SpriteFrames_h44bx")
@@ -2204,6 +2260,12 @@ animation = &"on"
 libraries = {
 "": SubResource("AnimationLibrary_7xgm1")
 }
+
+[node name="area_torch_6" type="Area2D" parent="tower_floor/Control_Torch/torch_6"]
+script = ExtResource("30_nih4a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tower_floor/Control_Torch/torch_6/area_torch_6"]
+shape = SubResource("RectangleShape2D_khu16")
 
 [node name="collision_left_door" type="Area2D" parent="."]
 collision_layer = 0
