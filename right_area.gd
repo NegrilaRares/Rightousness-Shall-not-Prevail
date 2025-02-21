@@ -30,7 +30,6 @@ func _process(delta: float) -> void:
 
 	if in_range:
 		is_near_enemy = true
-		print("right")
 		arrow.arrow_direction = 2
 	else:
 		is_near_enemy = false

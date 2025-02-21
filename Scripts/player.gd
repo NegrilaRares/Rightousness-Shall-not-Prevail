@@ -58,6 +58,6 @@ func get_input():
 	
 
 func _physics_process(_delta):
-	#player movement
+
 	get_input()
 	move_and_slide()
