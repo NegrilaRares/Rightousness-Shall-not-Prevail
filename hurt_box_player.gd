@@ -20,7 +20,11 @@ func _ready() -> void:
 
 func _on_area_entered(hitbox: Area2D) -> void:
 
+<<<<<<< Updated upstream
 	player.call_deferred("queue_free") 
+=======
+	#ssssssssplayer.call_deferred("queue_free") 
+>>>>>>> Stashed changes
 
 	hitbox_inside = hitbox
 	in_range = true
@@ -34,6 +38,12 @@ func _on_area_exited(hitbox: Area2D) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+<<<<<<< Updated upstream
 
 	if hitbox_inside == arrowHitbox:
 		player.call_deferred("queue_free")  # removes enemy node and all children
+=======
+	if is_instance_valid( $"../../../arrow"):
+		if hitbox_inside == arrowHitbox && $"../../../arrow".arrow_is_moving:
+				player.call_deferred("queue_free")  # removes enemy node and all children
+>>>>>>> Stashed changes

@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=60 format=4 uid="uid://iv2qx76lb6u7"]
+=======
+[gd_scene load_steps=72 format=4 uid="uid://iv2qx76lb6u7"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_6m0vk"]
 [ext_resource type="Texture2D" uid="uid://cfcrgjkmbjno4" path="res://TileSets/level_0_basicStage_TileMap.png" id="1_gl7wn"]
@@ -13,6 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://16yuoonmw0na" path="res://Character/char_up.png" id="8_xskcm"]
 [ext_resource type="Script" path="res://hurt_box_player.gd" id="9_hp62i"]
 [ext_resource type="Texture2D" uid="uid://bthod3e1galam" path="res://TileSets/cave_wall.png" id="9_tbyyv"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="Script" path="res://hit_box_direction.gd" id="10_k5n6t"]
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://buing1u2kqwmt" path="res://UI/sword.png" id="12_f8jpm"]
 [ext_resource type="FontFile" uid="uid://b77j6j7usxa2v" path="res://Fonts/Orange Kid.otf" id="12_m2cs5"]
 [ext_resource type="Script" path="res://Scripts/textbox_container.gd" id="13_752kv"]
@@ -25,8 +33,18 @@
 [ext_resource type="Texture2D" uid="uid://dcnet2wwjge3u" path="res://Objects/torch_2.png" id="19_r1u8y"]
 [ext_resource type="Texture2D" uid="uid://ivkw6vehiekr" path="res://Objects/torch_3.png" id="20_5bb3g"]
 [ext_resource type="Script" path="res://collision_left_door.gd" id="20_7ws17"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://bit51jlgavu1r" path="res://Objects/torch_4.png" id="21_r1unc"]
 [ext_resource type="Script" path="res://arrow.gd" id="24_acfnb"]
+=======
+[ext_resource type="Script" path="res://near_hitbox.gd" id="20_xc8ph"]
+[ext_resource type="Script" path="res://right_area.gd" id="21_j6ti4"]
+[ext_resource type="Texture2D" uid="uid://bit51jlgavu1r" path="res://Objects/torch_4.png" id="21_r1unc"]
+[ext_resource type="Script" path="res://left_area.gd" id="22_ap68r"]
+[ext_resource type="Script" path="res://down_area.gd" id="23_xielt"]
+[ext_resource type="Script" path="res://arrow.gd" id="24_acfnb"]
+[ext_resource type="Script" path="res://up_area.gd" id="24_bbagy"]
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://dyf0dacp61r24" path="res://Objects/arrow_down.png" id="25_75ay4"]
 [ext_resource type="Script" path="res://area_torch.gd" id="25_inrcx"]
 [ext_resource type="Script" path="res://area_torch_2.gd" id="26_g4gej"]
@@ -80,6 +98,12 @@ size = Vector2(29, 25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smff2"]
 size = Vector2(69, 74)
 
+<<<<<<< Updated upstream
+=======
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5lhl"]
+size = Vector2(67, 74)
+
+>>>>>>> Stashed changes
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ka70"]
 size = Vector2(49, 14)
 
@@ -1434,6 +1458,24 @@ bg_color = Color(0.2408, 0.25112, 0.86, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uq5in"]
 size = Vector2(105, 101)
 
+<<<<<<< Updated upstream
+=======
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbw76"]
+size = Vector2(296.5, 270.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iia1s"]
+size = Vector2(828.5, 105.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acsmj"]
+size = Vector2(943.5, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8i34"]
+size = Vector2(104, 522.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ahe"]
+size = Vector2(100, 634)
+
+>>>>>>> Stashed changes
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tdm7t"]
 texture = ExtResource("1_gl7wn")
 texture_region_size = Vector2i(96, 96)
@@ -1921,6 +1963,18 @@ script = ExtResource("9_hp62i")
 position = Vector2(-0.5, 13)
 shape = SubResource("RectangleShape2D_smff2")
 
+<<<<<<< Updated upstream
+=======
+[node name="HitBox_direction" type="Area2D" parent="Player/AnimatedSprite2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("10_k5n6t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AnimatedSprite2D/HitBox_direction"]
+position = Vector2(-1.5, 14)
+shape = SubResource("RectangleShape2D_q5lhl")
+
+>>>>>>> Stashed changes
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(411, 622)
 shape = SubResource("RectangleShape2D_3ka70")
@@ -2047,7 +2101,11 @@ texture = ExtResource("12_f8jpm")
 [node name="Player2" type="CharacterBody2D" parent="."]
 z_index = 6
 y_sort_enabled = true
+<<<<<<< Updated upstream
 position = Vector2(115, -119)
+=======
+position = Vector2(-280, -42)
+>>>>>>> Stashed changes
 script = ExtResource("17_dyw36")
 
 [node name="AnimatedSprite2D_2" type="AnimatedSprite2D" parent="Player2"]
@@ -2065,9 +2123,51 @@ script = ExtResource("15_8outu")
 position = Vector2(2, 7)
 shape = SubResource("RectangleShape2D_uq5in")
 
+<<<<<<< Updated upstream
+=======
+[node name="near_hitbox" type="Area2D" parent="Player2/AnimatedSprite2D_2"]
+script = ExtResource("20_xc8ph")
+
+[node name="CollisionShape2D_3" type="CollisionShape2D" parent="Player2/AnimatedSprite2D_2/near_hitbox"]
+position = Vector2(3, 9)
+shape = SubResource("RectangleShape2D_qbw76")
+
+[node name="right_area" type="Area2D" parent="Player2/AnimatedSprite2D_2"]
+script = ExtResource("21_j6ti4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/AnimatedSprite2D_2/right_area"]
+position = Vector2(522.75, 7)
+shape = SubResource("RectangleShape2D_iia1s")
+
+[node name="left_area" type="Area2D" parent="Player2/AnimatedSprite2D_2"]
+script = ExtResource("22_ap68r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/AnimatedSprite2D_2/left_area"]
+position = Vector2(-571.25, 6)
+shape = SubResource("RectangleShape2D_acsmj")
+
+[node name="down_area" type="Area2D" parent="Player2/AnimatedSprite2D_2"]
+script = ExtResource("23_xielt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/AnimatedSprite2D_2/down_area"]
+position = Vector2(3, 357.75)
+shape = SubResource("RectangleShape2D_v8i34")
+
+[node name="up_area" type="Area2D" parent="Player2/AnimatedSprite2D_2"]
+script = ExtResource("24_bbagy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/AnimatedSprite2D_2/up_area"]
+position = Vector2(0, -415)
+shape = SubResource("RectangleShape2D_u8ahe")
+
+>>>>>>> Stashed changes
 [node name="CollisionShape2D_2" type="CollisionShape2D" parent="Player2"]
 position = Vector2(410.5, 623)
 shape = SubResource("RectangleShape2D_3ka70")
+
+[node name="Area2D" type="Area2D" parent="Player2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/Area2D"]
 
 [node name="single_door_closed" type="TileMapLayer" parent="."]
 z_index = 3

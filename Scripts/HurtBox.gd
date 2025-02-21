@@ -28,4 +28,6 @@ func _on_area_exited(hitbox: HitBox) -> void:
 func _process(delta: float) -> void:
 
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && in_range:
+		#$"../../../Player/AnimatedSprite2D/HurtBox_Player".monitoring = false
 		enemy_model.call_deferred("queue_free") # removes enemy node and all children
+		$"../../../arrow".call_deferred("queue_free")
