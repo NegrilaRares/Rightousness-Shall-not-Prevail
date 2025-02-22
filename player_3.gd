@@ -65,19 +65,23 @@ func _process(delta: float) -> void:
 
 		if dominant_direction == "Right":
 			$AnimatedSprite2D_2.animation = "walk_right"
+			$AnimatedSprite2D_2/Hitbox_Melee3/CollisionShape2D/AnimatedSprite2D.animation = "melee_right"
 			enemy_hitbox.position.x = 57
 			enemy_hitbox.position.y = 10
 			
 		elif dominant_direction == "Left":
 			$AnimatedSprite2D_2.animation = "walk_left"
+			$AnimatedSprite2D_2/Hitbox_Melee3/CollisionShape2D/AnimatedSprite2D.animation = "melee_left"
 			enemy_hitbox.position.x = -53
 			enemy_hitbox.position.y = 10
 		elif dominant_direction == "Up":
 			$AnimatedSprite2D_2.animation = "walk_up"
+			$AnimatedSprite2D_2/Hitbox_Melee3/CollisionShape2D/AnimatedSprite2D.animation = "melee_up"
 			enemy_hitbox.position.x = 0
 			enemy_hitbox.position.y = -44
 		elif dominant_direction == "Down":
 			$AnimatedSprite2D_2.animation = "walk_down"
+			$AnimatedSprite2D_2/Hitbox_Melee3/CollisionShape2D/AnimatedSprite2D.animation = "melee_down"
 			enemy_hitbox.position.x = 0
 			enemy_hitbox.position.y = 63
 

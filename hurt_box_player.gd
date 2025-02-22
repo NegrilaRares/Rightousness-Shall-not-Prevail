@@ -11,6 +11,8 @@ var hitbox_inside
 @onready var meleeHitbox_2 = $"../../../Player3/AnimatedSprite2D_2/Hitbox_Melee3"
 @onready var timer = $"../../../Timer"
 @onready var timer_2 = $"../../../Timer2"
+@onready var timer_4 = $"../../../Timer4"
+@onready var timer_5 = $"../../../Timer5"
 
 func _init() -> void:
 	collision_layer = 0 # where the box is 
@@ -21,6 +23,8 @@ func _ready() -> void:
 	connect("area_entered", self._on_area_entered)
 	connect("area_exited", self._on_area_exited)
 	
+	timer_5.connect("timeout", self._on_melee_timer_5_timeout)
+	timer_4.connect("timeout", self._on_melee_timer_4_timeout)
 	timer_2.connect("timeout", self._on_melee_timer_2_timeout)
 	timer.connect("timeout", self._on_melee_timer_timeout)
 
@@ -33,10 +37,16 @@ func _on_area_entered(hitbox: Area2D) -> void:
 	if hitbox_inside == meleeHitbox_1:
 		in_melee_range = true
 		timer.start(0.8)
+		if is_instance_valid($"../../../Player4"):
+			$"../../../Player4/AnimatedSprite2D_2/Hitbox_Melee4/CollisionShape2D/AnimatedSprite2D".show()
+		timer_4.start(0.8)
+		
 		
 	if hitbox_inside == meleeHitbox_2:
 		in_melee_range_2 = true
-		timer_2.start(0.8) 
+		timer_2.start(0.8)
+		$"../../../Player3/AnimatedSprite2D_2/Hitbox_Melee3/CollisionShape2D/AnimatedSprite2D".show()
+		timer_5.start(0.8)
 
 func _on_area_exited(hitbox: Area2D) -> void:
 	if hitbox_inside == hitbox:
@@ -58,10 +68,19 @@ func _on_melee_timer_timeout() -> void:
 		$"../../../Panel".show()
 
 func _on_melee_timer_2_timeout() -> void:
+	
 
 	if hitbox_inside == meleeHitbox_2:
 		player.call_deferred("queue_free")
 		$"../../../Panel".show()
+		
+func _on_melee_timer_4_timeout() -> void:
+	if is_instance_valid($"../../../Player4"):
+		$"../../../Player4/AnimatedSprite2D_2/Hitbox_Melee4/CollisionShape2D/AnimatedSprite2D".hide()	
+
+func _on_melee_timer_5_timeout() -> void:
+	if is_instance_valid($"../../../Player3"):
+		$"../../../Player3/AnimatedSprite2D_2/Hitbox_Melee3/CollisionShape2D/AnimatedSprite2D".hide()		
 
 func _process(delta: float) -> void:
 
