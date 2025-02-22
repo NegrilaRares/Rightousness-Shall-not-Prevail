@@ -12,10 +12,31 @@ var right : Vector2 = Vector2(1, 0)
 var left : Vector2 = Vector2(-1, 0)
 var up : Vector2 = Vector2(0, -1)
 var down : Vector2 = Vector2(0, 1)
+var move = false
 
 
 func _ready():
-	pass
+	move = false
+	$".".hide()
+	$AnimatedSprite2D_2/HurtBox_Enemy_3.monitoring = false
+	$AnimatedSprite2D_2/Hitbox_Melee3.monitorable = false
+	$CollisionShape2D_2.disabled = true
+	Narrative.entered_level_2.connect(on_active)
+	Narrative.exited_level_2.connect(on_inactive)
+	
+func on_active():
+	move = true
+	$".".show()
+	$AnimatedSprite2D_2/HurtBox_Enemy_3.monitoring = true
+	$AnimatedSprite2D_2/Hitbox_Melee3.monitorable = true
+	$CollisionShape2D_2.disabled = false
+	
+func on_inactive():
+	move = false
+	$".".hide()
+	$AnimatedSprite2D_2/HurtBox_Enemy_3.monitoring = false
+	$AnimatedSprite2D_2/Hitbox_Melee3.monitorable = false
+	$CollisionShape2D_2.disabled = true
 	
 func _process(delta: float) -> void:
 	if is_instance_valid(target) && player_hurtbox.in_melee_range_2 == false:
@@ -57,5 +78,5 @@ func _process(delta: float) -> void:
 			enemy_hitbox.position.x = 0
 			enemy_hitbox.position.y = 63
 
-		
-		move_and_slide()
+		if move == true:
+			move_and_slide()

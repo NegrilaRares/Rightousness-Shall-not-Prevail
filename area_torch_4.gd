@@ -11,6 +11,14 @@ func _init() -> void:
 func _ready() -> void:
 	connect("area_entered", self._on_area_entered)
 	connect("area_exited", self._on_area_exited)
+	Narrative.torch_hide.connect(on_t_hide)
+	Narrative.torch_show.connect(on_t_show)
+
+func on_t_hide():
+	$".".monitoring = false
+
+func on_t_show():
+	$".".monitoring = true
 
 func _on_area_entered(hitbox: HitBox) -> void:
 		in_range = true

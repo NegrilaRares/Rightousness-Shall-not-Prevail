@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var target = $"../Player/AnimatedSprite2D"
 var input_dir = right
 @onready var previous_dir = arrow.arrow_direction
+var move = false
 
 var speed = 170
 
@@ -16,7 +17,39 @@ var down : Vector2 = Vector2(0, 1)
 
 
 func _ready():
-	pass
+	move = false
+	$".".hide()
+	$AnimatedSprite2D_2/HurtBox_Enemy.monitoring = false
+	$AnimatedSprite2D_2/near_hitbox.monitorable = false
+	$AnimatedSprite2D_2/right_area.monitorable = false
+	$AnimatedSprite2D_2/left_area.monitorable = false
+	$AnimatedSprite2D_2/down_area.monitorable = false
+	$AnimatedSprite2D_2/up_area.monitorable = false
+	$CollisionShape2D_2.disabled = true
+	Narrative.entered_level_2.connect(on_active)
+	Narrative.exited_level_2.connect(on_inactive)
+	
+func on_active():
+	move = true
+	$".".show()
+	$AnimatedSprite2D_2/HurtBox_Enemy.monitoring = true
+	$AnimatedSprite2D_2/near_hitbox.monitorable = true
+	$AnimatedSprite2D_2/right_area.monitorable = true
+	$AnimatedSprite2D_2/left_area.monitorable = true
+	$AnimatedSprite2D_2/down_area.monitorable = true
+	$AnimatedSprite2D_2/up_area.monitorable = true
+	$CollisionShape2D_2.disabled = false
+	
+func on_inactive():
+	move = false
+	$".".hide()
+	$AnimatedSprite2D_2/HurtBox_Enemy.monitoring = false
+	$AnimatedSprite2D_2/near_hitbox.monitorable = false
+	$AnimatedSprite2D_2/right_area.monitorable = false
+	$AnimatedSprite2D_2/left_area.monitorable = false
+	$AnimatedSprite2D_2/down_area.monitorable = false
+	$AnimatedSprite2D_2/up_area.monitorable = false
+	$CollisionShape2D_2.disabled = true
 	
 func _process(delta: float) -> void:
 	if is_instance_valid($"../Player"):
@@ -47,8 +80,9 @@ func _process(delta: float) -> void:
 					$AnimatedSprite2D_2.animation = "walk_up"
 				elif dominant_direction == "Down":
 					$AnimatedSprite2D_2.animation = "walk_down"
-					
-				move_and_slide()
+				
+				if move == true:
+					move_and_slide()
 		
 	if 	!$AnimatedSprite2D_2/near_hitbox.is_near_enemy:
 		if is_instance_valid($"../Player"):
