@@ -55,14 +55,17 @@ func _on_melee_timer_timeout() -> void:
 
 	if hitbox_inside == meleeHitbox_1:
 		player.call_deferred("queue_free")
+		$"../../../Panel".show()
 
 func _on_melee_timer_2_timeout() -> void:
 
 	if hitbox_inside == meleeHitbox_2:
 		player.call_deferred("queue_free")
+		$"../../../Panel".show()
 
 func _process(delta: float) -> void:
 
 	if hitbox_inside == arrowHitbox && hitbox_inside != null:
 		print(hitbox_inside)
+		$"../../../Panel".show()
 		player.call_deferred("queue_free")

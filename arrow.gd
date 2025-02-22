@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-var speed = 100
+var speed = 400
 
 var delay = 100
 
@@ -30,19 +30,19 @@ func _ready():
 	self.position = ($"../Player2".position) - (Vector2(115, -119))
 	move = false
 	$".".hide()
-	$arrow_sprite/HitBox_Arrow.monitorable = false
+	$arrow_sprite/HitBox_Arrow/CollisionShape2D.set_deferred("disabled", true)
 	Narrative.entered_level_2.connect(on_active)
 	Narrative.exited_level_2.connect(on_inactive)
 	
 func on_active():
 	move = true
 	$".".show()
-	$arrow_sprite/HitBox_Arrow.monitorable = true
+	$arrow_sprite/HitBox_Arrow/CollisionShape2D.set_deferred("disabled", false)
 	
 func on_inactive():
 	move = false
 	$".".hide()
-	$arrow_sprite/HitBox_Arrow.monitorable = false
+	$arrow_sprite/HitBox_Arrow/CollisionShape2D.set_deferred("disabled", true)
 	
 
 func can_move() -> bool:

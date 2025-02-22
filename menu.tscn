@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=4 uid="uid://iv2qx76lb6u7"]
+[gd_scene load_steps=91 format=4 uid="uid://iv2qx76lb6u7"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_6m0vk"]
 [ext_resource type="Texture2D" uid="uid://cfcrgjkmbjno4" path="res://TileSets/level_0_basicStage_TileMap.png" id="1_gl7wn"]
@@ -55,6 +55,9 @@
 [ext_resource type="Script" path="res://hurt_box_wizard.gd" id="52_4hcew"]
 [ext_resource type="Script" path="res://player_6.gd" id="54_gy33v"]
 [ext_resource type="Texture2D" uid="uid://c8bnepswm71k3" path="res://Character/dragon.png" id="55_t7hia"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lx7dh"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w3an0"]
 animations = [{
@@ -1962,6 +1965,25 @@ offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("13_wdwoa")
 
+[node name="Panel" type="Panel" parent="."]
+visible = false
+z_index = 16
+offset_left = -131.0
+offset_right = 1219.0
+offset_bottom = 836.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lx7dh")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 285.0
+offset_right = 907.0
+offset_bottom = 451.0
+theme_override_fonts/font = ExtResource("12_m2cs5")
+theme_override_font_sizes/font_size = 100
+text = "You Lose"
+horizontal_alignment = 1
+
 [node name="Player" type="CharacterBody2D" parent="."]
 z_index = 6
 y_sort_enabled = true
@@ -2523,6 +2545,7 @@ position = Vector2(1, 9)
 shape = SubResource("RectangleShape2D_1r20a")
 
 [node name="Player6" type="CharacterBody2D" parent="."]
+visible = false
 z_index = 6
 y_sort_enabled = true
 position = Vector2(2056, 1286)

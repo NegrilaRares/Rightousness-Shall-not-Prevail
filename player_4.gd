@@ -17,25 +17,25 @@ var move = false
 func _ready():
 	move = false
 	$".".hide()
-	$AnimatedSprite2D_2/HurtBox_Enemy_3.monitoring = false
-	$AnimatedSprite2D_2/Hitbox_Melee4.monitorable = false
-	$CollisionShape2D_2.disabled = true
+	$AnimatedSprite2D_2/HurtBox_Enemy_3/CollisionShape2D_Hurt.set_deferred("disabled", true)
+	$AnimatedSprite2D_2/Hitbox_Melee4/CollisionShape2D.set_deferred("disabled", true)
+	$CollisionShape2D_2.set_deferred("disabled", true)
 	Narrative.entered_level_2.connect(on_active)
 	Narrative.exited_level_2.connect(on_inactive)
 	
 func on_active():
 	move = true
 	$".".show()
-	$AnimatedSprite2D_2/HurtBox_Enemy_3.monitoring = true
-	$AnimatedSprite2D_2/Hitbox_Melee4.monitorable = true
-	$CollisionShape2D_2.disabled = false
+	$AnimatedSprite2D_2/HurtBox_Enemy_3/CollisionShape2D_Hurt.set_deferred("disabled", false)
+	$AnimatedSprite2D_2/Hitbox_Melee4/CollisionShape2D.set_deferred("disabled", false)
+	$CollisionShape2D_2.set_deferred("disabled", false)
 	
 func on_inactive():
 	move = false
 	$".".hide()
-	$AnimatedSprite2D_2/HurtBox_Enemy_3.monitoring = false
-	$AnimatedSprite2D_2/Hitbox_Melee4.monitorable = false
-	$CollisionShape2D_2.disabled = true
+	$AnimatedSprite2D_2/HurtBox_Enemy_3/CollisionShape2D_Hurt.set_deferred("disabled", true)
+	$AnimatedSprite2D_2/Hitbox_Melee4/CollisionShape2D.set_deferred("disabled", true)
+	$CollisionShape2D_2.set_deferred("disabled", true)
 	
 func _process(delta: float) -> void:
 	if is_instance_valid(target) && player_hurtbox.in_melee_range == false:

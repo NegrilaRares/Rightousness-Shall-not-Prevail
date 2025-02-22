@@ -19,37 +19,37 @@ var down : Vector2 = Vector2(0, 1)
 func _ready():
 	move = false
 	$".".hide()
-	$AnimatedSprite2D_2/HurtBox_Enemy.monitoring = false
-	$AnimatedSprite2D_2/near_hitbox.monitorable = false
-	$AnimatedSprite2D_2/right_area.monitorable = false
-	$AnimatedSprite2D_2/left_area.monitorable = false
-	$AnimatedSprite2D_2/down_area.monitorable = false
-	$AnimatedSprite2D_2/up_area.monitorable = false
-	$CollisionShape2D_2.disabled = true
+	$AnimatedSprite2D_2/HurtBox_Enemy/CollisionShape2D_Hurt.set_deferred("disabled", true)
+	$AnimatedSprite2D_2/near_hitbox/CollisionShape2D_3.set_deferred("disabled", true)
+	$AnimatedSprite2D_2/right_area/CollisionShape2D.set_deferred("disabled", true)
+	$AnimatedSprite2D_2/left_area/CollisionShape2D.set_deferred("disabled", true)
+	$AnimatedSprite2D_2/down_area/CollisionShape2D.set_deferred("disabled", true)
+	$AnimatedSprite2D_2/up_area/CollisionShape2D.set_deferred("disabled", true)
+	$CollisionShape2D_2.set_deferred("disabled", true)
 	Narrative.entered_level_2.connect(on_active)
 	Narrative.exited_level_2.connect(on_inactive)
 	
 func on_active():
 	move = true
 	$".".show()
-	$AnimatedSprite2D_2/HurtBox_Enemy.monitoring = true
-	$AnimatedSprite2D_2/near_hitbox.monitorable = true
-	$AnimatedSprite2D_2/right_area.monitorable = true
-	$AnimatedSprite2D_2/left_area.monitorable = true
-	$AnimatedSprite2D_2/down_area.monitorable = true
-	$AnimatedSprite2D_2/up_area.monitorable = true
-	$CollisionShape2D_2.disabled = false
+	$AnimatedSprite2D_2/HurtBox_Enemy/CollisionShape2D_Hurt.set_deferred("disabled", false)
+	$AnimatedSprite2D_2/near_hitbox/CollisionShape2D_3.set_deferred("disabled", false)
+	$AnimatedSprite2D_2/right_area/CollisionShape2D.set_deferred("disabled", false)
+	$AnimatedSprite2D_2/left_area/CollisionShape2D.set_deferred("disabled", false)
+	$AnimatedSprite2D_2/down_area/CollisionShape2D.set_deferred("disabled", false)
+	$AnimatedSprite2D_2/up_area/CollisionShape2D.set_deferred("disabled", false)
+	$CollisionShape2D_2.set_deferred("disabled", false)
 	
 func on_inactive():
 	move = false
 	$".".hide()
-	$AnimatedSprite2D_2/HurtBox_Enemy.monitoring = false
-	$AnimatedSprite2D_2/near_hitbox.monitorable = false
-	$AnimatedSprite2D_2/right_area.monitorable = false
-	$AnimatedSprite2D_2/left_area.monitorable = false
-	$AnimatedSprite2D_2/down_area.monitorable = false
-	$AnimatedSprite2D_2/up_area.monitorable = false
-	$CollisionShape2D_2.disabled = true
+	$AnimatedSprite2D_2/HurtBox_Enemy/CollisionShape2D_Hurt.set_deferred("disabled", true)
+	$AnimatedSprite2D_2/near_hitbox/CollisionShape2D_3.set_deferred("disabled", true)
+	$AnimatedSprite2D_2/right_area/CollisionShape2D.set_deferred("disabled", true)
+	$AnimatedSprite2D_2/left_area/CollisionShape2D.set_deferred("disabled", true)
+	$AnimatedSprite2D_2/down_area/CollisionShape2D.set_deferred("disabled", true)
+	$AnimatedSprite2D_2/up_area/CollisionShape2D.set_deferred("disabled", true)
+	$CollisionShape2D_2.set_deferred("disabled", true)
 	
 func _process(delta: float) -> void:
 	if is_instance_valid($"../Player"):

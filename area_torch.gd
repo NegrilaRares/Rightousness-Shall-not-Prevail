@@ -14,10 +14,10 @@ func _ready() -> void:
 	Narrative.torch_show.connect(on_t_show)
 
 func on_t_hide():
-	$".".monitoring = false
+	$CollisionShape2D.set_deferred("disabled", true)
 
 func on_t_show():
-	$".".monitoring = true
+	$CollisionShape2D.set_deferred("disabled", false)
 
 func _on_area_entered(hitbox: HitBox) -> void:
 		in_range = true
