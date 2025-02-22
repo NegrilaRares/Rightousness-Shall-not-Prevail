@@ -19,5 +19,4 @@ func _on_area_entered(hitbox: HitBox) -> void:
 		$"../tower_floor/Control_Torch/torch_4".hide()
 		$"../tower_floor/Control_Torch/torch_5".hide()
 		$"../tower_floor/Control_Torch/torch_6".hide()
-		print("hide")
 		Narrative.torch_hide.emit()
