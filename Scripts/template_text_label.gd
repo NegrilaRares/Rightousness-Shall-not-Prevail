@@ -36,6 +36,10 @@ signal level_1
 signal level_1_up
 signal level_1_down 
 signal level_2
+signal level_m1
+signal ready_teleport
+signal torch_hide
+signal torch_show
 
 signal torch_1_touched
 signal torch_2_touched
@@ -236,14 +240,27 @@ func enter_level_1():
 		if is_instance_valid(tile_tower_floor): 
 			tile_tower_floor.show()
 		Narrative.level_1.emit()
-		
 	local_level = 1
 	
 func enter_level_2():
 	local_level = 2
 	hide_all_stage_elements()
-	if is_instance_valid(tile_door_door_with_second_closed): 
-		tile_door_door_with_second_closed.show()
+	if is_instance_valid(tile_door_cave_with_door_open): 
+		tile_door_cave_with_door_open.show()
 	if is_instance_valid(tile_tower_floor): 
 		tile_tower_floor.show()
 	Narrative.level_2.emit()
+	await get_tree().create_timer(2).timeout
+	Narrative.ready_teleport.emit()
+	
+func enter_level_m1():
+	local_level = -1
+	hide_all_stage_elements()
+	if is_instance_valid(tile_cave_cave_with_second_closed): 
+		tile_cave_cave_with_second_closed.show()
+	if is_instance_valid(tile_tower_floor): 
+		tile_tower_floor.show()
+	Narrative.level_m1.emit()
+	await get_tree().create_timer(2).timeout
+	Narrative.ready_teleport.emit()
+	
