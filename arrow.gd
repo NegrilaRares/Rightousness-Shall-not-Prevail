@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-var speed = 10
+var speed = 100
 
 var delay = 100
 
@@ -22,13 +22,27 @@ const max_global_y = 250
 var is_at_start = false
 var arrow_is_moving = false
 var is_destroyed = false
+var move = false
 
 var arrow_direction = 2
 
 func _ready():
-	
 	self.position = ($"../Player2".position) - (Vector2(115, -119))
-
+	move = false
+	$".".hide()
+	$arrow_sprite/HitBox_Arrow.monitorable = false
+	Narrative.entered_level_2.connect(on_active)
+	Narrative.exited_level_2.connect(on_inactive)
+	
+func on_active():
+	move = true
+	$".".show()
+	$arrow_sprite/HitBox_Arrow.monitorable = true
+	
+func on_inactive():
+	move = false
+	$".".hide()
+	$arrow_sprite/HitBox_Arrow.monitorable = false
 	
 
 func can_move() -> bool:
@@ -72,7 +86,6 @@ func arrow_shoot(direction : Vector2) -> void:
 		is_destroyed = true
 		arrow_is_moving = false
 		is_at_start = true
-	
 	
 	move_and_slide()
 	

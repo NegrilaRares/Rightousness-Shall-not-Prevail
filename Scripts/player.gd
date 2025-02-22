@@ -10,6 +10,12 @@ func _ready():
 	Menu.game_start.connect(on_button_play_pressed_received)
 	Menu.level_1.connect(on_level_1_received)
 	Narrative.narrator_end_0.connect(on_narrator_start_dialogue_end_received)
+	Narrative.ready_teleport.connect(on_teleport_ready)
+	
+func on_teleport_ready():
+	local_game_start = false
+	await get_tree().create_timer(0.3).timeout
+	local_game_start = true
 	
 func on_button_play_pressed_received():
 	local_game_start = true	

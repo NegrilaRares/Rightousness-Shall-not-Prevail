@@ -36,6 +36,14 @@ signal level_1
 signal level_1_up
 signal level_1_down 
 signal level_2
+signal level_m1
+signal ready_teleport
+signal torch_hide
+signal torch_show
+signal entered_level_2
+signal exited_level_2
+signal entered_level_m1
+signal exited_level_m1
 
 signal torch_1_touched
 signal torch_2_touched
@@ -223,6 +231,7 @@ func enter_level_1():
 	if local_level == 1:
 		print("gg")
 	if local_level == 2:
+		Narrative.exited_level_2.emit()
 		if is_instance_valid(tile_door_cave_with_door_open): 
 			tile_door_cave_with_door_open.show()
 		if is_instance_valid(tile_tower_floor): 
@@ -231,6 +240,7 @@ func enter_level_1():
 			tile_door_door_with_second_closed.hide()
 		Narrative.level_1.emit()
 	if local_level == -1:
+		Narrative.exited_level_m1.emit()
 		if is_instance_valid(tile_door_cave_with_cave_open): 
 			tile_door_cave_with_cave_open.show()
 		if is_instance_valid(tile_tower_floor): 
@@ -241,9 +251,24 @@ func enter_level_1():
 	
 func enter_level_2():
 	local_level = 2
+	Narrative.entered_level_2.emit()
 	hide_all_stage_elements()
-	if is_instance_valid(tile_door_door_with_second_closed): 
-		tile_door_door_with_second_closed.show()
+	if is_instance_valid(tile_door_cave_with_door_open): 
+		tile_door_cave_with_door_open.show()
 	if is_instance_valid(tile_tower_floor): 
 		tile_tower_floor.show()
 	Narrative.level_2.emit()
+	await get_tree().create_timer(2).timeout
+	Narrative.ready_teleport.emit()
+
+func enter_level_m1():
+	local_level = -1
+	Narrative.entered_level_m1.emit()
+	hide_all_stage_elements()
+	if is_instance_valid(tile_cave_cave_with_second_closed): 
+		tile_cave_cave_with_second_closed.show()
+	if is_instance_valid(tile_tower_floor): 
+		tile_tower_floor.show()
+	Narrative.level_m1.emit()
+	await get_tree().create_timer(2).timeout
+	Narrative.ready_teleport.emit()	
