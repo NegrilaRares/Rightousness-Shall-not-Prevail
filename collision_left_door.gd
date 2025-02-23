@@ -50,7 +50,7 @@ func _on_area_entered(hitbox: HitBox) -> void:
 			elif level == -1:
 				level = 1
 				Narrative.enter_level_1()
-				$"../Player".position = Vector2i(238,-200)
+				$"../Player".position = Vector2i(300,-100)
 				$"../tower_floor/Control_Torch/torch_1".show()
 				$"../tower_floor/Control_Torch/torch_2".show()
 				$"../tower_floor/Control_Torch/torch_3".show()
@@ -58,18 +58,5 @@ func _on_area_entered(hitbox: HitBox) -> void:
 				$"../tower_floor/Control_Torch/torch_5".show()
 				$"../tower_floor/Control_Torch/torch_6".show()
 				Narrative.torch_show.emit()
-			#elif level == 3:
-				#level = 2
-				#Narrative.enter_level_2()
-			#elif level == -1:
-				#level = 1
-				#Narrative.enter_level_1()
-			#elif level == -2:
-				#level = -1
-				#Narrative.enter_level_m1()
-			#elif level == -3:
-				#level = -2
-				#Narrative.enter_level_m2()
-
 			
 			

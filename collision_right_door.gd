@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _on_area_entered(hitbox: HitBox) -> void:
 	if $"../door_cave_with_cave_open".visible == true:
-		$"../Player".position = Vector2i(-167,-200)
+		$"../Player".position = Vector2i(-167,-170)
 		$"../Player/AnimatedSprite2D".animation = "walk_down"
 		Narrative.enter_level_m1()
 		$"../tower_floor/Control_Torch/torch_1".hide()

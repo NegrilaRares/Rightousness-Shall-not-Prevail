@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=4 uid="uid://iv2qx76lb6u7"]
+[gd_scene load_steps=119 format=4 uid="uid://iv2qx76lb6u7"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_6m0vk"]
 [ext_resource type="Texture2D" uid="uid://cfcrgjkmbjno4" path="res://TileSets/level_0_basicStage_TileMap.png" id="1_gl7wn"]
@@ -75,8 +75,12 @@
 [ext_resource type="Texture2D" uid="uid://btergwepj2v1x" path="res://Effects/Sword_Strike_LEFT.png" id="64_trifn"]
 [ext_resource type="Texture2D" uid="uid://d1x52r2u4d7k5" path="res://Effects/Sword_Strike_RIGHT.png" id="65_fu4ld"]
 [ext_resource type="Texture2D" uid="uid://b6h4ymmvt3pjh" path="res://Effects/Sword_Strike_UP.png" id="66_7sbgt"]
+[ext_resource type="Script" path="res://hurt_box_dragon.gd" id="76_kq4dx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lx7dh"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rswf2"]
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w3an0"]
@@ -2205,13 +2209,92 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_lx7dh")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 450.0
-offset_top = 285.0
-offset_right = 907.0
-offset_bottom = 451.0
+offset_left = 225.0
+offset_top = 221.0
+offset_right = 1183.0
+offset_bottom = 590.0
 theme_override_fonts/font = ExtResource("12_m2cs5")
 theme_override_font_sizes/font_size = 100
-text = "You Lose"
+text = "You Have Died
+Your Story Will Remain Untold
+Maybe for The Better"
+horizontal_alignment = 1
+
+[node name="Panel2" type="Panel" parent="."]
+visible = false
+z_index = 19
+offset_left = -129.0
+offset_top = -67.0
+offset_right = 1274.0
+offset_bottom = 886.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rswf2")
+
+[node name="Label" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 442.0
+offset_top = 200.0
+offset_right = 965.0
+offset_bottom = 297.0
+theme_override_fonts/font = ExtResource("12_m2cs5")
+theme_override_font_sizes/font_size = 80
+text = "The Expected Ending"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 320.0
+offset_right = 1204.0
+offset_bottom = 778.0
+theme_override_fonts/font = ExtResource("12_m2cs5")
+theme_override_font_sizes/font_size = 38
+text = "And so the Wizard, who was working on resealing the dragon,
+a duty upheld throughout generations, was slain.
+Without Him the dragon escaped scorching the lands 
+and feating on the riches he rightfully deserved.
+Could you have done any differently?
+Why didn't the Holy Sword guide you the right way?
+As you stand there questioning your quest, the dragon thinks to himself: 
+\"And Nothing went Wrong.... *Swirk*\""
+horizontal_alignment = 1
+
+[node name="Panel3" type="Panel" parent="."]
+visible = false
+z_index = 19
+offset_left = -134.0
+offset_top = -81.0
+offset_right = 1269.0
+offset_bottom = 872.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rswf2")
+
+[node name="Label" type="Label" parent="Panel3"]
+layout_mode = 0
+offset_left = 442.0
+offset_top = 200.0
+offset_right = 965.0
+offset_bottom = 297.0
+theme_override_fonts/font = ExtResource("12_m2cs5")
+theme_override_font_sizes/font_size = 80
+text = "The UnExpected Ending"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel3"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 320.0
+offset_right = 1204.0
+offset_bottom = 778.0
+theme_override_fonts/font = ExtResource("12_m2cs5")
+theme_override_font_sizes/font_size = 38
+text = "And so the lies of the dragon cumble.
+He was the sword all along.
+Struggling to find a way to free himself
+after being resealed by the wizard so many times.
+As you hold the now powerless sword up,
+you, the Narrator and perhaps the whole of neighboring lands
+realise that perhaps you are not so gullible.
+In his final moments the only thought the dragon can have is:
+\"How could things have gone so wrong... *Blegh* x_x\" "
 horizontal_alignment = 1
 
 [node name="Player" type="CharacterBody2D" parent="."]
@@ -2669,7 +2752,7 @@ collision_mask = 256
 script = ExtResource("39_n38rg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collision_right_door"]
-position = Vector2(94, -1)
+position = Vector2(101, -6)
 shape = SubResource("RectangleShape2D_l7ld8")
 
 [node name="arrow" type="CharacterBody2D" parent="."]
@@ -2694,6 +2777,7 @@ position = Vector2(18.4893, 0)
 shape = SubResource("RectangleShape2D_61mfu")
 
 [node name="Player3" type="CharacterBody2D" parent="."]
+visible = false
 z_index = 6
 y_sort_enabled = true
 position = Vector2(358, -147)
@@ -2733,6 +2817,7 @@ position = Vector2(410.5, 623)
 shape = SubResource("RectangleShape2D_3ka70")
 
 [node name="Player4" type="CharacterBody2D" parent="."]
+visible = false
 z_index = 6
 y_sort_enabled = true
 position = Vector2(-281, 55)
@@ -2806,10 +2891,10 @@ rotation = 3.14159
 scale = Vector2(0.67, 0.725)
 sprite_frames = SubResource("SpriteFrames_c0j0v")
 
-[node name="HurtBox_Wizard" type="Area2D" parent="Player6/AnimatedSprite2D"]
-script = ExtResource("52_4hcew")
+[node name="HurtBox_Dragon" type="Area2D" parent="Player6/AnimatedSprite2D"]
+script = ExtResource("76_kq4dx")
 
-[node name="CollisionShape2D_Hurt" type="CollisionShape2D" parent="Player6/AnimatedSprite2D/HurtBox_Wizard"]
+[node name="CollisionShape2D_Hurt" type="CollisionShape2D" parent="Player6/AnimatedSprite2D/HurtBox_Dragon"]
 position = Vector2(-82.0896, 22.7583)
 shape = SubResource("RectangleShape2D_lexqs")
 
